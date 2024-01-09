@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/wargear_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/wargear_name_tv">
+
+    <TextView
+        android:id="@+id/wargear_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="\u2022 4 [Bolt Rifle, Bolt Pistol, Close Combat Weapon]"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toTopOf="@+id/item_wargear_rv"
+        app:layout_constraintEnd_toStartOf="@+id/remove_model_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/remove_model_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#FFFFFF"
+            android:scaleType="centerInside"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:src="@drawable/red_minus_mark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_wargear_rv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wargear_name_tv"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_wargear_option_alt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

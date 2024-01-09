@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/space_marine_vertical" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_activity_fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/alt_black"
+        android:clipToPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00AEB0B2"
+        android:divider="@drawable/main_activity_divider"
+        android:fadingEdge="horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <Button
+            android:id="@+id/QuickCalculatorBtn"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#27504B4B"
+            android:text="Quick Damage Calculator"
+            android:textColorHighlight="#00FFFFFF"
+            android:textColorLink="#00FFFFFF" />
+
+        <Button
+            android:id="@+id/launch_settup_game_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#27504B4B"
+            android:text="Settup a Game"
+            android:textColorHighlight="#00FFFFFF"
+            android:textColorLink="#00FFFFFF" />
+
+        <Button
+            android:id="@+id/roster_builder_nav_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#27504B4B"
+            android:text="Roster Builder"
+            android:textColorHighlight="#00FFFFFF"
+            android:textColorLink="#00FFFFFF" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

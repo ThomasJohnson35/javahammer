@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ReferenceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_detachment_full_page_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black">
+
+            <include
+                android:id="@+id/fragment_reference_toolbar"
+                layout="@layout/generic_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fragment_detachment_reference_enhancement_label_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Enhancements"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_reference_toolbar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_detachment_reference_enhancement_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/fragment_detachment_reference_enhancement_label_tv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_detachment_reference_enhancement_label_tv"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_enhancement" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintStart_toStartOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:srcCompat="@drawable/dotted"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Stratagems"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_detachment_reference_stratagem_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintStart_toStartOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintTop_toBottomOf="@+id/textView22"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_stratagem" />
+
+            <ImageView
+                android:id="@+id/dotted_1321"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_detachment_reference_enhancement_rv"
+                app:layout_constraintStart_toStartOf="@+id/fragment_detachment_reference_stratagem_rv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_detachment_reference_stratagem_rv"
+                app:srcCompat="@drawable/dotted"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/fragment_faction_reference_detachment_lable_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Detachment Rules"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/dotted_1321"
+                app:layout_constraintTop_toBottomOf="@+id/dotted_1321" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_faction_reference_detachment_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/dotted_1321"
+                app:layout_constraintStart_toStartOf="@+id/fragment_faction_reference_detachment_lable_tv"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_faction_reference_detachment_lable_tv"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_reference" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/damage_test"
+        android:icon="@drawable/shooting_symbol"
+        android:title="Firing Range" />
+    <item
+        android:id="@+id/two"
+        android:icon="@drawable/baseline_arrow_back_ios_new_24"
+        android:title="2" />
+    <item
+        android:id="@+id/three"
+        android:icon="@drawable/baseline_arrow_forward_ios_24"
+        android:title="3" />
+</menu>

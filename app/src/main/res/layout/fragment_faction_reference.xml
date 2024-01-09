@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ReferenceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/full_page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <include
+            android:id="@+id/fragment_reference_toolbar"
+            layout="@layout/generic_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/fragment_reference_faction_ultrawide_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:foreground="@drawable/fade_down_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_reference_toolbar"
+            app:srcCompat="@drawable/adeptus_custodes_wide" />
+
+        <include
+            android:id="@+id/fragment_faction_reference_datasheets"
+            layout="@layout/item_reference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/army_rules_label_tv"
+            app:layout_constraintStart_toStartOf="@+id/army_rules_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/dotted_1321" />
+
+        <TextView
+            android:id="@+id/army_rules_label_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="Army Rules"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_reference_faction_ultrawide_iv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_faction_reference_army_rules_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/army_rules_label_tv"
+            app:layout_constraintStart_toStartOf="@+id/army_rules_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/army_rules_label_tv"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_army_rule" />
+
+        <ImageView
+            android:id="@+id/dotted_1321"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_faction_reference_army_rules_rv"
+            app:layout_constraintStart_toStartOf="@+id/fragment_faction_reference_army_rules_rv"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_faction_reference_army_rules_rv"
+            app:srcCompat="@drawable/dotted"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/fragment_faction_reference_detachment_lable_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Detachments"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_faction_reference_army_rules_rv"
+            app:layout_constraintStart_toStartOf="@+id/dotted_1321"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_faction_reference_datasheets" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_faction_reference_detachment_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/dotted_1321"
+            app:layout_constraintStart_toStartOf="@+id/fragment_faction_reference_detachment_lable_tv"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_faction_reference_detachment_lable_tv"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_reference" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

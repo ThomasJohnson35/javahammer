@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/attacker_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/rounded_corner"
+    android:backgroundTint="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:showIn="@layout/fragment_damage_test">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_dumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/import_weapon_layout_fragment_damage_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/import_weapon_tv_fragment_damage_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Import Model"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/import_weapon_iv_fragment_damage_test"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/import_weapon_iv_fragment_damage_test"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/import_weapon_tv_fragment_damage_test"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/import_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/remove_weapon_layout_fragment_damage_test"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/remove_weapon_tv_fragment_damage_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove Model"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/remove_weapon_iv_fragment_damage_test"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/remove_weapon_tv_fragment_damage_test"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/remove_all_weapons_layout_fragment_damage_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/remove_all_weapons_tv_fragment_damage_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear Models"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/remove_all_weapons_iv_fragment_damage_test"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/remove_all_weapons_tv_fragment_damage_test"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_popup_sync" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/attacker_tv_damage_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Attacker"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout_dumb" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/attacker_rv_fragment_damage_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/warm_grey"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attacker_tv_damage_test"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_damage_test_profile" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Keywords"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/attacker_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/attacker_rv_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/attacks_tv_damage_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:editable="false"
+        android:text="Attacks"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/attacker_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <EditText
+        android:id="@+id/attacks_et_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:hint="4"
+        android:minHeight="48dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/attacks_tv_damage_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/attacker_tv_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/attacks_tv_damage_test" />
+
+    <TextView
+        android:id="@+id/bs_tv_damage_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="BS"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/attacks_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/attacks_tv_damage_test" />
+
+    <EditText
+        android:id="@+id/bs_et_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:editable="true"
+        android:hint="number 1-6"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bs_tv_damage_test"
+        app:layout_constraintEnd_toEndOf="@+id/attacks_et_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/attacks_et_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/bs_tv_damage_test" />
+
+    <TextView
+        android:id="@+id/strenght_label_tv_damage_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Strength"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/bs_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/bs_tv_damage_test" />
+
+    <EditText
+        android:id="@+id/strength_input_tv_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:editable="true"
+        android:hint="Any Integer"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/strenght_label_tv_damage_test"
+        app:layout_constraintEnd_toEndOf="@+id/attacks_et_damage_test"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/attacks_et_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/strenght_label_tv_damage_test" />
+
+    <EditText
+        android:id="@+id/ap_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="any number >= 0"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/strength_tv"
+        app:layout_constraintEnd_toEndOf="@+id/strength_input_tv_damage_test"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/strength_input_tv_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/strength_tv" />
+
+    <TextView
+        android:id="@+id/strength_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="AP"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/strenght_label_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/strenght_label_tv_damage_test" />
+
+    <EditText
+        android:id="@+id/damage_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="eg. 1, 2, D3, D6, D6+1"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/damage_tv_damage_test"
+        app:layout_constraintEnd_toEndOf="@+id/strength_input_tv_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/strength_input_tv_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/damage_tv_damage_test" />
+
+    <TextView
+        android:id="@+id/damage_tv_damage_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Damage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/strenght_label_tv_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/strength_tv" />
+
+    <TextView
+        android:id="@+id/weapon_keywords_tv_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="[Assault], [Heavy]"
+        app:layout_constraintEnd_toEndOf="@+id/attacks_et_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/attacks_et_damage_test"
+        app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

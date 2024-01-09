@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CornerCut">
+        <item name="cornerSizeTopLeft">12%</item>
+        <item name="cornerSizeBottomRight">12%</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+
+
+    <style name="main_activity_btn">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="color">@color/white</item>
+    </style>
+
+</resources>

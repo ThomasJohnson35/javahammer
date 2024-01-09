@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2C0B0B0B">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/empty_box_icon"
+        android:foregroundGravity="fill_horizontal|center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/empty_box_icon"
+            android:backgroundTint="@color/black">
+
+            <TextView
+                android:id="@+id/enhancement_window_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Omni-steriliser"
+                android:textColor="@color/astartes_blue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/enhancement_window_flavour_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="This weapon exemplifies the Adeptus Mechanicus' disdain for organic life. All flesh, blood and bone caught in its searing beams are reduced to inert atoms in an instant."
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/enhancement_window_name_tv"
+                app:layout_constraintTop_toTopOf="@+id/enhancement_window_dotted_line_iv" />
+
+            <TextView
+                android:id="@+id/enhancement_window_target_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="ADEPTUS MECHANICUS model only. Add 3 to the Attacks characterisitc of the bearer's ranged weapons. In addition, the bearer's ranged weapons have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities."
+                android:textColor="@color/alt_black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/enhancement_window_flavour_tv"
+                app:layout_constraintStart_toStartOf="@+id/enhancement_window_flavour_tv"
+                app:layout_constraintTop_toBottomOf="@+id/enhancement_window_flavour_tv" />
+
+            <ImageView
+                android:id="@+id/enhancement_window_dotted_line_iv"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/enhancement_window_name_tv"
+                app:layout_constraintEnd_toStartOf="@+id/enhancement_window_pts_tv"
+                app:layout_constraintStart_toEndOf="@+id/enhancement_window_name_tv"
+                app:srcCompat="@drawable/dotted" />
+
+            <TextView
+                android:id="@+id/enhancement_window_pts_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="20 pts"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/enhancement_window_name_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

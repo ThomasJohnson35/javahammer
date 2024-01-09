@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".archived.FragmentDefender">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/attackerMsg"
+            android:layout_width="409dp"
+            android:layout_height="727dp"
+            android:background="#0924D5"
+            android:text="Defenders"
+            android:textAllCaps="true"
+            android:textColor="#FBFBFB"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attackerRV"
+            android:layout_width="0dp"
+            android:layout_height="697dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/attackerMsg"
+            app:layout_constraintEnd_toEndOf="@+id/attackerMsg"
+            app:layout_constraintStart_toStartOf="@+id/attackerMsg"
+            app:layout_constraintTop_toTopOf="@+id/attackerMsg"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

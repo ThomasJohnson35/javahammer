@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/results_layout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="32dp"
+    android:background="@drawable/rounded_corner"
+    android:backgroundTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/defender_layout_include"
+    app:layout_constraintStart_toStartOf="@+id/defender_layout_include"
+    app:layout_constraintTop_toBottomOf="@+id/defender_layout_include"
+    tools:showIn="@layout/fragment_damage_test">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dead_models_result_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_modifiers_rv"
+        app:layout_constraintTop_toBottomOf="@+id/dead_models_result_label_tv"
+        tools:itemCount="1">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/damage_dealt_result_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_modifiers_rv"
+        app:layout_constraintTop_toBottomOf="@+id/damage_dealt_results_label_tv"
+        tools:itemCount="1">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/unsaved_wounds_result_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_modifiers_rv"
+        app:layout_constraintTop_toBottomOf="@+id/unsaved_wounds_result_label_tv"
+        tools:itemCount="1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hits_results_extra_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_modifiers_rv"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        tools:itemCount="1" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Results"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/damage_dealt_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/damage_dealt_results_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/unsaved_wounds_results_output_tv"
+        app:layout_constraintTop_toTopOf="@+id/damage_dealt_results_label_tv" />
+
+    <ImageView
+        android:id="@+id/dotted_divider_1_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/dotted"
+        app:layout_constraintEnd_toEndOf="@+id/attacks_results_output_tv"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/attacks_results_modifiers_rv" />
+
+
+    <ImageView
+        android:id="@+id/dotted_divider_2_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/dotted"
+        app:layout_constraintEnd_toEndOf="@+id/dotted_divider_1_fragment_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/dotted_divider_1_fragment_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/hits_results_extra_rv" />
+
+
+    <ImageView
+        android:id="@+id/dotted_divider_3_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/dotted"
+        app:layout_constraintEnd_toEndOf="@+id/dotted_divider_2_fragment_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/dotted_divider_2_fragment_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/wounds_results_modifiers_rv" />
+
+
+    <ImageView
+        android:id="@+id/dotted_divider_4_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/dotted"
+        app:layout_constraintEnd_toEndOf="@+id/dotted_divider_3_fragment_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/dotted_divider_3_fragment_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/unsaved_wounds_result_rv" />
+
+
+    <ImageView
+        android:id="@+id/dotted_divider_5_fragment_damage_test"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/dotted"
+        app:layout_constraintEnd_toEndOf="@+id/dotted_divider_4_fragment_damage_test"
+        app:layout_constraintStart_toStartOf="@+id/dotted_divider_4_fragment_damage_test"
+        app:layout_constraintTop_toBottomOf="@+id/damage_dealt_result_rv" />
+
+
+    <TextView
+        android:id="@+id/attacks_results_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Shots"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Hits"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/dotted_divider_1_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/unsaved_wounds_result_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Unsaved Wounds"
+        app:layout_constraintStart_toStartOf="@+id/wounds_results_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/dotted_divider_3_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/unsaved_wounds_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/unsaved_wounds_result_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/wounds_results_output_tv"
+        app:layout_constraintTop_toTopOf="@+id/unsaved_wounds_result_label_tv" />
+
+    <TextView
+        android:id="@+id/wounds_results_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Wounds"
+        app:layout_constraintStart_toStartOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/dotted_divider_2_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/damage_dealt_results_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Damage Dealt"
+        app:layout_constraintStart_toStartOf="@+id/unsaved_wounds_result_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/dotted_divider_4_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/dead_models_result_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Dead Models"
+        app:layout_constraintStart_toStartOf="@+id/damage_dealt_results_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/dotted_divider_5_fragment_damage_test" />
+
+    <TextView
+        android:id="@+id/wounds_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/wounds_results_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/hits_results_output_tv" />
+
+    <TextView
+        android:id="@+id/hits_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView26"
+        app:layout_constraintEnd_toEndOf="@+id/attacks_results_output_tv"
+        app:layout_constraintTop_toTopOf="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/attacks_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/attacks_results_label_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/attacks_results_label_tv" />
+
+    <TextView
+        android:id="@+id/dead_models_results_output_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/stratagem_window_color"
+        android:padding="3dp"
+        android:text="0.000"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/dead_models_result_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/damage_dealt_results_output_tv"
+        app:layout_constraintTop_toTopOf="@+id/dead_models_result_label_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/attacks_results_modifiers_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/attacks_results_label_tv"
+        app:layout_constraintTop_toBottomOf="@+id/attacks_results_label_tv"
+        tools:itemCount="1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wounds_results_modifiers_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/hits_results_extra_rv"
+        app:layout_constraintTop_toBottomOf="@+id/wounds_results_label_tv"
+        tools:itemCount="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

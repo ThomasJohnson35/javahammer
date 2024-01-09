@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/roster_unit_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/roster_unit_ellipsis_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="settings"
+        android:src="@drawable/ellipsis_vertical_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/isWarlordIv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/roster_unit_name_tv"
+        app:layout_constraintStart_toEndOf="@+id/roster_unit_iv"
+        app:layout_constraintTop_toTopOf="@+id/roster_unit_iv"
+        app:srcCompat="@drawable/warlord_symbol_true"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/roster_unit_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="16dp"
+        android:text="Skitarii Ranger"
+        app:layout_constraintEnd_toStartOf="@+id/roster_unit_points_tv"
+        app:layout_constraintStart_toEndOf="@+id/roster_unit_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roster_unit_composition_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/roster_unit_ellipsis_btn"
+        app:layout_constraintStart_toStartOf="@+id/roster_unit_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/roster_unit_name_tv" />
+
+    <ImageView
+        android:id="@+id/roster_unit_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:background="#00000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/person" />
+
+    <TextView
+        android:id="@+id/roster_unit_points_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/astartes_blue_alt"
+        android:text="90 Points"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/roster_unit_ellipsis_btn"
+        app:layout_constraintTop_toTopOf="@+id/roster_unit_name_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2C0B0B0B">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:foregroundGravity="fill_horizontal|center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/empty_box_icon"
+            android:backgroundTint="@color/black">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/stratagem_window_when_tv"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_detachment_and_type_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_flavour_tv"
+                app:srcCompat="@drawable/dotted" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView4"
+                app:srcCompat="@drawable/rectangle_stratagem_window" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_name_tv"
+                app:srcCompat="@drawable/rectangle_stratagem_window" />
+
+            <TextView
+                android:id="@+id/stratagem_window_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="LETHAL DOSAGE"
+                android:textColor="@color/astartes_blue"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/stratagem_window_detachment_and_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="RAD COHORT - WARGEAR STRATAGEM"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_name_tv"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <TextView
+                android:id="@+id/stratagem_window_flavour_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Sanctified with the Tri-fold Litany, the most blessed power cells, fuel canisters and solid slugs have spent a decade in the oldest and most irraditated forge temple to certify their lethality"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_detachment_and_type_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_detachment_and_type_tv" />
+
+            <TextView
+                android:id="@+id/stratagem_window_when_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="WHEN: Your Shooting Phase"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/stratagem_window_flavour_tv"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_flavour_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_flavour_tv" />
+
+            <TextView
+                android:id="@+id/stratagem_window_target_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="TARGET: One ADEPTUS MECHANICUS unit from your army that has not been selected to shoot this phase"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/stratagem_window_flavour_tv"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_flavour_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_when_tv" />
+
+            <TextView
+                android:id="@+id/stratagem_window_effect_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="EFFECT: Until the end of the phase, each time a omdel in your unit makes a ranged attack that target an enemy unit, add 1 to the Wound roll"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/stratagem_window_target_tv"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_target_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_target_tv" />
+
+            <ImageView
+                android:id="@+id/stratagem_window_first_box"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                android:rotation="45"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/imageView3"
+                app:srcCompat="@drawable/empty_box_icon" />
+
+            <ImageView
+                android:id="@+id/stratagem_window_first_symbol"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/stratagem_window_first_box"
+                app:layout_constraintEnd_toEndOf="@+id/stratagem_window_first_box"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_first_box"
+                app:layout_constraintTop_toTopOf="@+id/imageView3"
+                app:srcCompat="@drawable/shooting_symbol"
+                app:tint="@color/stratagem_window_color" />
+
+            <ImageView
+                android:id="@+id/stratagem_window_cp_box"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/white"
+                android:rotation="45"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_first_box"
+                app:srcCompat="@drawable/empty_box_icon" />
+
+            <TextView
+                android:id="@+id/stratagem_window_cp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="2CP"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/stratagem_window_cp_box"
+                app:layout_constraintEnd_toEndOf="@+id/stratagem_window_cp_box"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_cp_box"
+                app:layout_constraintTop_toTopOf="@+id/stratagem_window_cp_box" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                app:layout_constraintBottom_toTopOf="@+id/stratagem_window_flavour_tv"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/stratagem_window_detachment_and_type_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stratagem_window_detachment_and_type_tv"
+                app:srcCompat="@drawable/dotted" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

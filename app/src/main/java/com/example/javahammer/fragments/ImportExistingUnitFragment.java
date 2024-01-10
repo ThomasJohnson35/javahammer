@@ -1,8 +1,6 @@
 package com.example.javahammer.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +10,10 @@ import android.widget.SearchView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javahammer.R;
-import com.example.javahammer.activities.DatasheetBlowup;
 import com.example.javahammer.activities.MainActivity;
 import com.example.javahammer.adapters.DatasheetAdapter;
 import com.example.javahammer.archived.OnItemClickListener;
@@ -26,7 +22,6 @@ import com.example.javahammer.data.Roster;
 import com.example.javahammer.data.Unit;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
@@ -49,7 +44,7 @@ public class ImportExistingUnitFragment extends BrowseUnitsFragment implements O
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_import_existing_unit, container, false);
+        return inflater.inflate(R.layout.activity_import_existing_item, container, false);
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +72,7 @@ public class ImportExistingUnitFragment extends BrowseUnitsFragment implements O
             }
         });
 
-        Toolbar toolbar = view.findViewById(R.id.import_existing_unit_toolbar);
+        Toolbar toolbar = view.findViewById(R.id.import_existing_item_toolbar);
         mainActivity.setSupportActionBar(toolbar);
         mainActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

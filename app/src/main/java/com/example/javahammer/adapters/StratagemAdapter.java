@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -71,16 +70,11 @@ public class StratagemAdapter extends RecyclerView.Adapter<StratagemAdapter.View
         if (stratagem.alertTiming == null) {
             holder.layout.setBackgroundColor(context.getResources().getColor(R.color.white));
         } else {
-            // If can be activated on either turn
-            if (stratagem.alertTiming.stream().anyMatch(n -> n.playerTurn.equals(Timing.PlayerTurn.NONE))) {
-                holder.layout.setBackgroundTintList(ColorStateList.valueOf(context.getResources().getColor(R.color.sea_green)));
-            } else if (stratagem.alertTiming.stream().anyMatch(n -> n.playerTurn.equals(Timing.PlayerTurn.OPPONENT_TURN))) {
-                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.red));
-            } else{
-                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.astartes_blue));
-            }
 
-            Pair<Integer, Integer> imageRes = stratagem.getImageRes();
+            holder.layout.setBackgroundColor(stratagem.getTurnColorTint());
+
+            Pair<Integer, Integer> imageRes = stratagem.getPhasesImageRes();
+
 
             if (imageRes == null) {
                 throw new IllegalArgumentException();

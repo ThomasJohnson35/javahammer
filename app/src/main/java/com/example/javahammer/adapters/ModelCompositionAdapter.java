@@ -146,18 +146,12 @@ public class ModelCompositionAdapter extends RecyclerView.Adapter<ModelCompositi
             // Cast to single wargear item with no choice
 
             wh.name.setText(String.format("%dX %s", count, model.getWargear()));
-            wh.name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onModelClick(model);
-                }
-            });
 
             wh.removeModelBtn.setVisibility(modelComposition.getMin() < modelComposition.getNumberOfModels() ? View.VISIBLE : View.GONE);
             wh.removeModelBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    modelComposition.removeModel(model, 1);
+                    listener.removeModel(modelComposition, model);
                     ModelCompositionAdapter.this.notifyDataSetChanged();
                 }
             });

@@ -112,5 +112,8 @@ public class Wargear implements Serializable, Parcelable, Comparable {
         return weaponProfileList;
     }
 
+    public ArrayList<Weapon> getWeaponProfiles() {
+        return weaponProfiles;
+    }
 
 }

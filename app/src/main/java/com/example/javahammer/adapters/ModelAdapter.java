@@ -21,6 +21,7 @@ import com.example.javahammer.interfaces.ModelAdapterListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+/*
 
 public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ViewHolder> {
 
@@ -163,7 +164,7 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ViewHolder> 
         public WargearAdapter(HashMap<Model, Integer> wargearHashMap) {this.modelWargearHashMap = wargearHashMap;}
     }
 
-    /*
+
     class ExchangeableWargearAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         LinkedHashMap<ArrayList<Weapon>, Integer> wargearChoicesMap;
@@ -298,6 +299,5 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ViewHolder> 
         }
     }
 
-
-     */
 }
+*/

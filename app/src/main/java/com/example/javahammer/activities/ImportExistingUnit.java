@@ -11,26 +11,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.example.javahammer.R;
 import com.example.javahammer.adapters.DatasheetAdapter;
 import com.example.javahammer.archived.OnItemClickListener;
-import com.example.javahammer.data.Ability;
 import com.example.javahammer.data.Model;
-import com.example.javahammer.data.ModelComposition;
-import com.example.javahammer.data.PointsThreshold;
 import com.example.javahammer.data.Roster;
-import com.example.javahammer.data.Statline;
 import com.example.javahammer.data.Unit;
-import com.example.javahammer.data.Wargear;
-import com.example.javahammer.data.WargearOption;
-import com.example.javahammer.data.Weapon;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
 
@@ -44,7 +33,7 @@ public class ImportExistingUnit extends AppCompatActivity implements OnItemClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_import_existing_unit);
+        setContentView(R.layout.activity_import_existing_item);
 
         roster = (Roster) getIntent().getSerializableExtra(String.valueOf(R.string.roster_parcelable));
 

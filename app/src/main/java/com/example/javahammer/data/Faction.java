@@ -63,7 +63,7 @@ public class Faction implements Serializable {
                                         "One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
                                         "Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
                                         "",
-                                                EnumSet.of(Phase.SHOOTING, Phase.FIGHT),
+                                        EnumSet.of(Phase.SHOOTING, Phase.FIGHT),
                                         EnumSet.of(PlayerTurn.OWNER),
                                         new Predicate<WarhammerGameState>() {
                                             @Override
@@ -77,8 +77,8 @@ public class Faction implements Serializable {
                                         "Adaptive Strategy",
                                         1,
                                         stratagemType.STRATEGIC_PLOY,
+                                        "The tenets of the Codex Astartes allow for unorthodox use of combat tactics and the employment of divergent strategic doctrines if doing so will lead to victory.",
                                         "Your Command phase.",
-                                        "One ADEPTUS ASTARTES unit from your army.",
                                         "One ADEPTUS ASTARTES unit from your army.",
                                         "Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for that unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that doctrine this battle.",
                                         "",
@@ -99,7 +99,7 @@ public class Faction implements Serializable {
                                         "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.",
                                         "",
                                         EnumSet.of(Phase.FIGHT),
-                                        EnumSet.of(PlayerTurn.OWNER),
+                                        EnumSet.of(PlayerTurn.OWNER, PlayerTurn.OPPONENT),
                                         new ArrayList<Timing>() {{
                                             add(new Timing(Timing.PlayerTurn.NONE, Timing.TimingEnum.FIGHT_MIDDLE, Timing.BattleRound.NONE));
                                         }}
@@ -131,7 +131,7 @@ public class Faction implements Serializable {
                                         "Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
                                         "",
                                         EnumSet.of(Phase.FIGHT, Phase.SHOOTING),
-                                        EnumSet.of(PlayerTurn.OWNER),
+                                        EnumSet.of(PlayerTurn.OWNER, PlayerTurn.OPPONENT),
                                         new ArrayList<Timing>() {{
                                             add(new Timing(Timing.PlayerTurn.OPPONENT_TURN, Timing.TimingEnum.SHOOTING_MIDDLE, Timing.BattleRound.NONE));
                                             add(new Timing(Timing.PlayerTurn.NONE, Timing.TimingEnum.FIGHT_MIDDLE, Timing.BattleRound.NONE));

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.javahammer.R;
-import com.example.javahammer.adapters.ModelAdapter;
 import com.example.javahammer.data.Model;
 import com.example.javahammer.data.Unit;
 import com.example.javahammer.data.Wargear;
@@ -23,7 +22,7 @@ public class WargearOptionChooseModels extends AppCompatActivity implements Adap
     Unit unit;
     WargearOption wargearOption;
     TextView wargearOptionCountTv;
-    ModelAdapter modelAdapter;
+  //  ModelAdapter modelAdapter;
     RecyclerView modelRv;
 
     @Override
@@ -34,10 +33,10 @@ public class WargearOptionChooseModels extends AppCompatActivity implements Adap
         wargearOption = getIntent().getParcelableExtra("WargearOption");
 
         // TODO FIX
-        modelAdapter = new ModelAdapter(unit.getUnitComposition());
+  //      modelAdapter = new ModelAdapter(unit.getUnitComposition());
         //
         modelRv = findViewById(R.id.wargear_option_choose_model_rv);
-        modelRv.setAdapter(modelAdapter);
+    //    modelRv.setAdapter(modelAdapter);
         modelRv.setLayoutManager(new LinearLayoutManager(this));
 
         wargearOptionCountTv = findViewById(R.id.wargear_option_active_tv);

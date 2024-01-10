@@ -4,7 +4,6 @@ import android.util.Pair;
 
 import com.example.javahammer.R;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -71,29 +70,42 @@ public class Stratagem implements Serializable {
         this.playerTurns = playerTurns;
     }
 
-    public Pair<Integer, Integer> getImageRes() {
+    public Pair<Integer, Integer> getPhasesImageRes() {
 
         if (phases.containsAll(EnumSet.allOf(Phase.class))) {
             return new Pair(R.drawable.check, null);
         } else if (phases.containsAll(EnumSet.of(Phase.MOVEMENT, Phase.CHARGE))) {
-            return new Pair<>(R.drawable.command_phase_ripped, R.drawable.command_phase_ripped);
+            return new Pair<>(R.drawable.movement_phase, R.drawable.charge_phase);
         } else if (phases.containsAll(EnumSet.of(Phase.SHOOTING, Phase.FIGHT))) {
-            return new Pair<>(R.drawable.shooting_symbol, R.drawable.command_phase_ripped);
+            return new Pair<>(R.drawable.shooting_phase, R.drawable.fight_phase);
         } else if (phases.contains(Phase.COMMAND)) {
-            return new Pair<>(R.drawable.command_phase_ripped, null);
+            return new Pair<>(R.drawable.command_phase, null);
         } else if (phases.contains(Phase.MOVEMENT)) {
-            return new Pair<>(R.drawable.command_phase_ripped, null);
+            return new Pair<>(R.drawable.movement_phase, null);
         }
         else if (phases.contains(Phase.SHOOTING)) {
-            return new Pair<>(R.drawable.command_phase_ripped, null);
+            return new Pair<>(R.drawable.shooting_phase, null);
         }
         else if (phases.contains(Phase.CHARGE)) {
-            return new Pair<>(R.drawable.command_phase_ripped, null);
+            return new Pair<>(R.drawable.charge_phase, null);
         }
         else if (phases.contains(Phase.FIGHT)) {
-            return new Pair<>(R.drawable.command_phase_ripped, null);
+            return new Pair<>(R.drawable.fight_phase, null);
         } else {
             return new Pair<>(null, null);
+        }
+    }
+
+    public int getTurnColorTint() {
+
+        if (playerTurns.containsAll(EnumSet.allOf(PlayerTurn.class))) {
+            return R.color.sea_green;
+        } else if (playerTurns.contains(EnumSet.of(PlayerTurn.OWNER))) {
+            return R.color.astartes_blue;
+        } else if (playerTurns.contains(EnumSet.of(PlayerTurn.OPPONENT))){
+            return R.color.red;
+        } else {
+            throw new RuntimeException("Missing Player Turn");
         }
     }
 }

@@ -73,7 +73,8 @@
                                 android:id="@+id/characters_sublayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="#222121">
+                                android:background="#222121"
+                                android:padding="1dp">
 
                                 <TextView
                                     android:id="@+id/characters_label_tv"
@@ -118,7 +119,8 @@
                                 android:id="@+id/battleline_sublayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="#222121">
+                                android:background="#222121"
+                                android:padding="1dp">
 
                                 <TextView
                                     android:id="@+id/battline_label_tv"
@@ -163,7 +165,8 @@
                                 android:id="@+id/other_datasheets_sublayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="#222121">
+                                android:background="#222121"
+                                android:padding="1dp">
 
                                 <TextView
                                     android:id="@+id/other_datasheets_label_tv"
@@ -208,7 +211,8 @@
                                 android:id="@+id/dedicated_transport_sublayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="#222121">
+                                android:background="#222121"
+                                android:padding="1dp">
 
                                 <TextView
                                     android:id="@+id/dedicated_transport_tv"

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:background="@color/warm_black"
+    android:backgroundTint="@color/astartes_blue_alt"
+    android:orientation="horizontal"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/ranged_weapon_icon_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="#404040"
+        app:srcCompat="@drawable/shooting_symbol" />
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.2"
+        android:background="#404040"
+        android:text="Weapon Name"
+        android:textColor="#F4F4F4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:background="#404040"
+        android:text="Range"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/attacks_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#404040"
+        android:text="A"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4" />
+
+    <TextView
+        android:id="@+id/bs_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#404040"
+        android:text="BS"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4" />
+
+    <TextView
+        android:id="@+id/strength_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#404040"
+        android:text="S"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4" />
+
+    <TextView
+        android:id="@+id/ap_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#404040"
+        android:text="AP"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4" />
+
+    <TextView
+        android:id="@+id/damage_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#404040"
+        android:text="D"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4" />
+</LinearLayout>

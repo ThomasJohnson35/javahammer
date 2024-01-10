@@ -207,7 +207,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/ranged_weapons_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView17"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -220,6 +220,17 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@android:drawable/arrow_up_float" />
+
+                    <ImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:tint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/shooting_phase" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -232,92 +243,7 @@
                     android:visibility="gone"
                     tools:visibility="gone">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:background="@color/warm_black"
-                        android:backgroundTint="@color/astartes_blue_alt"
-                        android:orientation="horizontal"
-                        android:visibility="visible"
-                        tools:visibility="visible">
-
-                        <ImageView
-                            android:id="@+id/ranged_weapon_icon_iv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.5"
-                            android:background="#404040"
-                            app:srcCompat="@drawable/shooting_symbol" />
-
-                        <TextView
-                            android:id="@+id/name_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3.2"
-                            android:background="#404040"
-                            android:text="Weapon Name"
-                            android:textColor="#F4F4F4" />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.1"
-                            android:background="#404040"
-                            android:text="Range"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:id="@+id/attacks_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="#404040"
-                            android:text="A"
-                            android:textAlignment="center"
-                            android:textColor="#F4F4F4" />
-
-                        <TextView
-                            android:id="@+id/bs_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="#404040"
-                            android:text="BS"
-                            android:textAlignment="center"
-                            android:textColor="#F4F4F4" />
-
-                        <TextView
-                            android:id="@+id/strength_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="#404040"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textColor="#F4F4F4" />
-
-                        <TextView
-                            android:id="@+id/ap_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="#404040"
-                            android:text="AP"
-                            android:textAlignment="center"
-                            android:textColor="#F4F4F4" />
-
-                        <TextView
-                            android:id="@+id/damage_tv"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="#404040"
-                            android:text="D"
-                            android:textAlignment="center"
-                            android:textColor="#F4F4F4" />
-                    </LinearLayout>
+                    <include layout="@layout/ranged_weapon_labels" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/ranged_weapon_rv"
@@ -350,7 +276,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/melee_weapons_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView11"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -363,6 +289,16 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@android:drawable/arrow_up_float" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/fight_phase"
+                        app:tint="@color/white" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -461,7 +397,7 @@
                     android:id="@+id/abilities_preview_layout"
                     style="@style/datasheet_dropdowns"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     tools:showIn="@layout/activity_datasheet_blowup">
 
                     <TextView
@@ -476,7 +412,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/abilities_preview_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView5"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -489,6 +425,16 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@android:drawable/arrow_up_float" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:tint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ability_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -535,7 +481,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/wargear_abilities_preview_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView19"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -548,6 +494,16 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@android:drawable/arrow_up_float" />
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:tint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/wargear_icon" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -583,6 +539,15 @@
                     android:layout_weight="10"
                     tools:showIn="@layout/activity_datasheet_blowup">
 
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/wargear_options_preview_label_tv"
                         android:layout_width="0dp"
@@ -595,7 +560,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/wargear_options_preview_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView18"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -647,6 +612,17 @@
                     android:layout_weight="10"
                     tools:showIn="@layout/activity_datasheet_blowup">
 
+                    <ImageView
+                        android:id="@+id/unit_icon_iv"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="12"
+                        android:tint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/person" />
+
                     <TextView
                         android:id="@+id/unit_composition_preview_label_tv"
                         android:layout_width="0dp"
@@ -659,7 +635,7 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/unit_composition_preview_dropdown_iv"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/unit_icon_iv"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -682,32 +658,6 @@
                     android:orientation="vertical"
                     android:visibility="gone"
                     tools:visibility="visible">
-
-                    <LinearLayout
-                        android:id="@+id/models_label_linear_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="10"
-                        android:background="@color/warm_black"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/unit_icon_iv"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="12"
-                            app:srcCompat="@drawable/person" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:contentDescription="Unit Composition Label"
-                            android:text="Unit Composition"
-                            android:textColor="@color/white"
-                            tools:text="Unit Composition" />
-                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/model_distribution_tv"
@@ -767,7 +717,7 @@
                 </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/enhcancements_preview_layout"
+                    android:id="@+id/enhancements_preview_layout"
                     style="@style/datasheet_dropdowns"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

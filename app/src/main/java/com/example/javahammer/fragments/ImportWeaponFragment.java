@@ -1,10 +1,12 @@
 package com.example.javahammer.fragments;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
-
+import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
@@ -13,27 +15,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javahammer.R;
 import com.example.javahammer.activities.MainActivity;
-import com.example.javahammer.adapters.DatasheetAdapter;
-import com.example.javahammer.archived.OnItemClickListener;
-import com.example.javahammer.data.Faction;
-import com.example.javahammer.data.Unit;
+import com.example.javahammer.adapters.WeaponAdapter;
+import com.example.javahammer.data.Weapon;
+import com.example.javahammer.interfaces.WeaponAdapterListener;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
-public class BrowseUnitsFragment extends Fragment implements OnItemClickListener {
-
-    private Faction faction;
-    private HashSet<Unit> units;
-    private DatasheetAdapter adapter;
+public class ImportWeaponFragment extends Fragment implements WeaponAdapterListener {
+    private ArrayList<ArrayList<Weapon>> weaponArrayList;
     SearchView searchView;
     public View view;
     public MainActivity mainActivity;
 
-    public BrowseUnitsFragment(Faction faction) {
-        this.faction = faction;
-        this.units = (HashSet<Unit>) faction.getUnits().stream().collect(Collectors.toSet());
+    public WeaponAdapter adapter;
+    public DamageTestFragment prevFragment;
+
+    public LinearLayout weaponLabelsLayout;
+    public ImportWeaponFragment(DamageTestFragment prevFragment) {
+        this.prevFragment = prevFragment;
     }
 
     @Override
@@ -52,6 +52,8 @@ public class BrowseUnitsFragment extends Fragment implements OnItemClickListener
         this.view = view;
         mainActivity = (MainActivity) getActivity();
 
+        view.findViewById(R.id.include_ranged_weapon_labels).setVisibility(View.VISIBLE);
+
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -68,21 +70,26 @@ public class BrowseUnitsFragment extends Fragment implements OnItemClickListener
         });
 
         Toolbar toolbar = view.findViewById(R.id.import_existing_item_toolbar);
-        toolbar.setTitle(String.format("%s Datasheets", faction.getName()));
         mainActivity.setSupportActionBar(toolbar);
         mainActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //What to do on back clicked
-                mainActivity.replaceFragment(new FactionReferenceFragment(faction));
+                // What to do on back clicked
+                Toast.makeText(mainActivity, "GOING BACK!", Toast.LENGTH_SHORT).show();
+
+                mainActivity.replaceFragment(prevFragment);
             }
         });
         // Lookup the recyclerview in activity layout
         RecyclerView rvUnits = (RecyclerView) view.findViewById(R.id.unitsRecycleView);
 
+        weaponArrayList = new ArrayList<ArrayList<Weapon>>();
+
+        Weapon.armory.values().forEach(wargear -> weaponArrayList.add(new ArrayList<>(wargear.getWeaponProfiles())));
+
         // Lookup the recyclerview in activity layout
-        adapter = new DatasheetAdapter(null, new ArrayList<>(units));
+        adapter = new WeaponAdapter(weaponArrayList);
         adapter.setListener(this);
 
         // Attach the adapter to the recyclerview to populate items
@@ -91,24 +98,12 @@ public class BrowseUnitsFragment extends Fragment implements OnItemClickListener
         rvUnits.setLayoutManager(new LinearLayoutManager(mainActivity));
     }
     private void filterList(String text) {
-        ArrayList<Unit> filteredList = new ArrayList<>();
-
-        for (Unit d : units) {
-            if (d.getName().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(d);
-            }
-        }
-
+        adapter.setFilteredList(new ArrayList<>(weaponArrayList.stream().filter(weapons -> weapons.stream().anyMatch(weapon -> weapon.getName().toLowerCase().contains(text.toLowerCase()))).collect(Collectors.toList())));
     }
-    // Protocol when Datasheet is clicked
+
     @Override
-    public void onItemClick(Unit item) {
-        // Doesn't exist
+    public void onWeaponClick(Weapon weapon) {
+        prevFragment.weaponArrayList.add(weapon);
+        mainActivity.replaceFragment(prevFragment);
     }
-    @Override
-    public void onBlowupDatasheet(Unit datasheet) {
-        mainActivity.replaceFragment(new DatasheetBlowupReferenceFragment(datasheet, this));
-    }
-
-
 }

@@ -6,7 +6,6 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
-import com.example.javahammer.R;
 import com.example.javahammer.activities.DamageCalculator;
 
 import java.io.Serializable;

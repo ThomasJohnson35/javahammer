@@ -436,7 +436,6 @@ public class RosterBuilder extends AppCompatActivity implements PopupMenu.OnMenu
                 name = itemView.findViewById(R.id.roster_unit_name_tv);
                 unitCompositon = itemView.findViewById(R.id.roster_unit_composition_tv);
                 points = itemView.findViewById(R.id.roster_unit_points_tv);
-                warlord = itemView.findViewById(R.id.isWarlordIv);
                 ellipsis = itemView.findViewById(R.id.roster_unit_ellipsis_btn);
             }
         }

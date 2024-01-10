@@ -27,18 +27,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:text="ARMOUR OF CONTEMPT"
+            android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/white"
             android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/stratagem_cp_tv"
             app:layout_constraintStart_toEndOf="@+id/item_stratagem_phase_symbol_one_iv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/stratagem_cp_tv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:text="1 CP"
             android:textAlignment="textEnd"
@@ -46,7 +48,6 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/stratagem_name_tv"
             app:layout_constraintTop_toTopOf="@+id/stratagem_name_tv" />
 
         <TextView

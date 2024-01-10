@@ -304,6 +304,9 @@ public class RosterBuilderFragment extends Fragment implements PopupMenu.OnMenuI
             holder.imageView.setImageResource(unit.getImageRes());
 
             StringBuffer stringBuffer = new StringBuffer();
+            if (unit.isWarlord()) {
+                stringBuffer.append("Warlord\n");
+            }
             for (ModelComposition modelComposition : unit.getUnitComposition()) {
                 stringBuffer.append(String.format("\u2022 %s\n", modelComposition.getTemplateModel().getName()));
                 for (Map.Entry<Model, Integer> loadoutComposition : modelComposition.getLoadoutCompositon().entrySet()) {
@@ -321,8 +324,7 @@ public class RosterBuilderFragment extends Fragment implements PopupMenu.OnMenuI
                 }
             });
 
-            holder.warlord.setVisibility(unit.isWarlord() ? View.VISIBLE : View.GONE);
-
+            /*
             // If unit is a character (i.e. eligible to be warlord)
             if (unit.getKeywords().contains(Model.ModelKeywords.CHARACTER)) {
                 holder.warlord.setVisibility(View.VISIBLE);
@@ -343,6 +345,7 @@ public class RosterBuilderFragment extends Fragment implements PopupMenu.OnMenuI
                     subRosters();
                 }
             });
+             */
 
             holder.ellipsis.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -368,7 +371,6 @@ public class RosterBuilderFragment extends Fragment implements PopupMenu.OnMenuI
             TextView name;
             TextView unitCompositon;
             TextView points;
-            ImageView warlord;
             ImageButton ellipsis;
 
             public ViewHolder(View itemView) {
@@ -378,7 +380,6 @@ public class RosterBuilderFragment extends Fragment implements PopupMenu.OnMenuI
                 name = itemView.findViewById(R.id.roster_unit_name_tv);
                 unitCompositon = itemView.findViewById(R.id.roster_unit_composition_tv);
                 points = itemView.findViewById(R.id.roster_unit_points_tv);
-                warlord = itemView.findViewById(R.id.isWarlordIv);
                 ellipsis = itemView.findViewById(R.id.roster_unit_ellipsis_btn);
             }
         }

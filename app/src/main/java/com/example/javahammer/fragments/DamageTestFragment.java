@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
 
 public class DamageTestFragment extends Fragment implements ProfileAdapterListener {
 
-    String TAG = "DamageTestFragment";
+
     MainActivity mainActivity;
     View view;
     DamageTestAttackerAdapter damageTestAttackerAdapter;
@@ -58,10 +58,12 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
     public ArrayList<Weapon> weaponArrayList;
 
 
+    // Flags
     public boolean switchingText = false;
+    String TAG = "DamageTestFragment";
 
     // UI Elements
-    public ConstraintLayout resultsLayout;
+    public ConstraintLayout importWeaponLayout, removeWeaponLayout, removeAllWeaponsLayout, importModelLayout, removeModelLayout, removeAllModelLayout, resultsLayout;
     public EditText attacks, bs, strength, ap, damage, toughness, wounds, save, invulnerable;
     public RecyclerView attackerRv, defenderRv;
     public TextView weaponKeywords, attacksResult, hitsResult, woundsResult, unsavedWoundsResult, damageDealtResults, deadModelsResults;
@@ -112,6 +114,11 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
         toolbar = view.findViewById(R.id.fragment_damage_test_toolbar);
         toolbar.setTitle("Damage Tester");
 
+        // Attacking Weapon Buttons
+        importWeaponLayout = view.findViewById(R.id.import_weapon_layout_fragment_damage_test);
+        removeWeaponLayout = view.findViewById(R.id.remove_weapon_layout_fragment_damage_test);
+        removeAllWeaponsLayout = view.findViewById(R.id.remove_all_weapons_layout_fragment_damage_test);
+
         // Attacking Weapon Adapter
         damageTestAttackerAdapter = new DamageTestAttackerAdapter(weaponArrayList);
         damageTestAttackerAdapter.setListener(this);
@@ -138,9 +145,28 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
         save = view.findViewById(R.id.save_et_damage_test);
         invulnerable = view.findViewById(R.id.invlunerable_et_damage_test);
 
+        importWeaponLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainActivity.replaceFragment(new ImportWeaponFragment(DamageTestFragment.this));
+            }
+        });
+
+        removeWeaponLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        removeAllWeaponsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         // Attacker Edit Text Fields
-
         weaponKeywords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -342,7 +368,7 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
             }
         });
 
-        resultsLayout = view.findViewById(R.id.results_layout);
+        resultsLayout = view.findViewById(R.id.results_layout_include);
         attacksResultsExtraRv = view.findViewById(R.id.attacks_results_modifiers_rv);
         attacksResult = view.findViewById(R.id.attacks_results_output_tv);
         hitsResultsExtraRv = view.findViewById(R.id.hits_results_extra_rv);
@@ -506,21 +532,7 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
             Log.v(TAG, "BS " +bs);
 
             // Parses bs String as a percentage of hits
-            Double hitPercentage;
-            if (weapon.getBs() == 2) {
-                hitPercentage = (double) 5/6;
-            } else if (weapon.getBs() == 3) {
-                hitPercentage = (double) 4/6;
-            } else if (weapon.getBs() == 4) {
-                hitPercentage = (double) 3/6;
-            } else if (weapon.getBs() == 5) {
-                hitPercentage = (double) 2/6;
-            } else if (weapon.getBs() == 6) {
-                hitPercentage = (double) 1/6;
-            } else {
-                Log.v(TAG, "FATAL ERROR!!!");
-                throw new RuntimeException();
-            }
+            Double hitPercentage = ( ( (double) 7 - weapon.getBs() ) / 6.0) ;
 
             // Re-calculate's hit percentage due to for  re-rolls
             if (attackFlags.contains(DamageCalculator.AttackFlags.RR_HITS_ALL)) {
@@ -535,17 +547,18 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
 
             Map<Integer, Double> hitsProbability = new HashMap<Integer, Double>();
             hitsProbability.put(0, 1.0);
+            int tracker = 0;
 
             for (Map.Entry<Integer, Double> entry : attacks.entrySet()) {
 
                 // For each outcome in the current wound probability map split into hits and misses
-                if (entry.getKey() != 0) {
+
+                while (tracker < entry.getKey()) {
                     hitsProbability = probabilitySplit(hitsProbability, hitPercentage);
+                    tracker++;
                 }
 
-                //   Log.v(TAG, "Wound Probability for this matrix" + woundsProbability);
                 numHits = probabilitySplit2(numHits, entry, hitsProbability);
-
             }
         }
 
@@ -751,7 +764,7 @@ public class DamageTestFragment extends Fragment implements ProfileAdapterListen
     }
     public void updateWeaponEditText() {
         switchingText = true;
-        weaponKeywords.setText(weapon.getKeywords().toString());
+        weaponKeywords.setText(weapon.getKeywords().toString().equals("[]") ? "No Keywords" : weapon.getKeywords().toString());
         attacks.setText( (weapon.getAttacks() == "") ? "" : weapon.getAttacks());
         bs.setText( (weapon.getBs() == -1) ? "" : "" +weapon.getBs());
         strength.setText( (weapon.getStrength() == -1) ? "" : "" +weapon.getStrength());

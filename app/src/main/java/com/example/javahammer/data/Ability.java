@@ -26,10 +26,7 @@ public class Ability implements Serializable {
         this.flavourText = flavourText;
         this.desc = desc;
         this.alertTiming = new ArrayList<Timing>();
-
         this.condtion = condition;
-
-
     }
 
     public String getName() {

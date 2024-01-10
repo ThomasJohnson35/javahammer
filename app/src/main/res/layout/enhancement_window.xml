@@ -11,7 +11,7 @@
         android:id="@+id/bac"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/empty_box_icon"
+        android:background="@drawable/empty_box_shape"
         android:foregroundGravity="fill_horizontal|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/empty_box_icon"
+            android:background="@drawable/empty_box_shape"
             android:backgroundTint="@color/black">
 
             <TextView

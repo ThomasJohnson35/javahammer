@@ -9,4 +9,9 @@ public class DatasheetBlowupReferenceFragment extends DatasheetBlowupFragment{
     public DatasheetBlowupReferenceFragment(Unit unit, Fragment prevFragment) {
         super(null, unit, prevFragment);
     }
+
+    @Override
+    public void setToolbar() {
+       toolbar.setTitle(unit.getName());
+    }
 }

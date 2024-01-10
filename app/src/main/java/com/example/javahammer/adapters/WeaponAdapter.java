@@ -14,15 +14,35 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javahammer.R;
+import com.example.javahammer.data.Roster;
+import com.example.javahammer.data.Unit;
 import com.example.javahammer.data.Weapon;
+import com.example.javahammer.interfaces.WeaponAdapterListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WeaponAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private ArrayList<ArrayList<Weapon>> weaponProfiles;
+    private WeaponAdapterListener listener;
+
+    // Pass in the contact array into the constructor
+    public WeaponAdapter(ArrayList<ArrayList<Weapon>> weaponProfiles) {
+        this.weaponProfiles = weaponProfiles;
+    }
+
+    public void setListener(WeaponAdapterListener listener) {
+        this.listener = listener;
+    }
+
+    public void setFilteredList(ArrayList<ArrayList<Weapon>> filteredList) {
+        this.weaponProfiles = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
@@ -48,8 +68,7 @@ public class WeaponAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Log.v("WeaponAdapter", "onBindViewHolder start");
-
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(context, (position % 2 == 1) ? R.color.white : R.color.warm_grey));
         if (holder.getItemViewType() == 0) {
             SingleWeaponProfile newHolder = (SingleWeaponProfile) holder ;
             Weapon weaponProfile = weaponProfiles.get(position).get(0);
@@ -73,11 +92,13 @@ public class WeaponAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             }
 
             newHolder.damage.setText("" + weaponProfile.getDamage());
-            Log.v("WeaponAdapter", "onBindViewHolder done");
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onWeaponClick(weaponProfile);
+                }
+            });
 
-            if (position % 2 == 1) {
-                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.warm_grey));
-            }
         } else {
             MultiWeaponProfile newHolder = (MultiWeaponProfile) holder;
 
@@ -124,6 +145,14 @@ public class WeaponAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     }
 
                     newHolder.damage.setText("" + weaponProfile.getDamage());
+
+
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            listener.onWeaponClick(weaponProfile);
+                        }
+                    });
                 }
 
                 @Override
@@ -200,14 +229,6 @@ public class WeaponAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-
-
-    // Pass in the contact array into the constructor
-    public WeaponAdapter(ArrayList<ArrayList<Weapon>> weaponProfiles) {
-        this.weaponProfiles = weaponProfiles;
-        Log.v("WeaponAdapter", "WeaponList size: "+ weaponProfiles.size());
-
-    }
 
 
 }

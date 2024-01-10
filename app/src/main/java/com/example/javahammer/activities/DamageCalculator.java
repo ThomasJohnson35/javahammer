@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.javahammer.adapters.ModelAdapter;
 import com.example.javahammer.R;
 import com.example.javahammer.data.Unit;
 import com.example.javahammer.data.Weapon;
@@ -28,7 +27,7 @@ public class DamageCalculator extends AppCompatActivity {
     String TAG = "DamageCalculator";
     public DefenderAdapter defenderAdapter;
     public RecyclerView defenderRv;
-    public ModelAdapter modelAdapter;
+   // public ModelAdapter modelAdapter;
     public RecyclerView modelRv;
 
     public EnumSet<AttackFlags> attackFlags;
@@ -78,9 +77,9 @@ public class DamageCalculator extends AppCompatActivity {
         defenderRv.setAdapter(defenderAdapter);
         defenderRv.setLayoutManager(new LinearLayoutManager(this));
    */
-        modelAdapter = new ModelAdapter(attackerUnit.getUnitComposition());
+        //modelAdapter = new ModelAdapter(attackerUnit.getUnitComposition());
         modelRv = findViewById(R.id.models_rv_damage);
-        modelRv.setAdapter(modelAdapter);
+      //  modelRv.setAdapter(modelAdapter);
         modelRv.setLayoutManager(new LinearLayoutManager(this));
 
 //        modelAdapter.setListener(this);

@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javahammer.R;
 import com.example.javahammer.activities.MainActivity;
-import com.example.javahammer.adapters.ModelAdapter;
+//import com.example.javahammer.adapters.ModelAdapter;
 import com.example.javahammer.data.Unit;
 import com.example.javahammer.data.Weapon;
 
@@ -29,7 +29,7 @@ public class DamageCalculatorFragment extends Fragment {
     String TAG = "DamageCalculator";
     public com.example.javahammer.activities.DamageCalculator.DefenderAdapter defenderAdapter;
     public RecyclerView defenderRv;
-    public ModelAdapter modelAdapter;
+ //   public ModelAdapter modelAdapter;
     public RecyclerView modelRv;
 
     public MainActivity mainActivity;
@@ -94,9 +94,9 @@ public class DamageCalculatorFragment extends Fragment {
         defenderRv.setAdapter(defenderAdapter);
         defenderRv.setLayoutManager(new LinearLayoutManager(this));
    */
-        modelAdapter = new ModelAdapter(attackerUnit.getUnitComposition());
+    //    modelAdapter = new ModelAdapter(attackerUnit.getUnitComposition());
         modelRv = view.findViewById(R.id.models_rv_damage);
-        modelRv.setAdapter(modelAdapter);
+     //   modelRv.setAdapter(modelAdapter);
         modelRv.setLayoutManager(new LinearLayoutManager(mainActivity));
 
 //        modelAdapter.setListener(this);

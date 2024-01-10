@@ -106,7 +106,6 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         this.view = view;
         mainActivity = (MainActivity) getActivity();
 
-        // TODO
         findViews();
 
         enhancements = new ArrayList<>();
@@ -130,6 +129,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
             @Override
             public void onClick(View view) {
                 roster.addUnit(unit);
+                unitDataChanged();
             }
         });
 
@@ -244,15 +244,19 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
                     view.findViewById(R.id.wargear_options_preview_dropdown_iv));
         }
 
-        // Roster
+        setExpandableOnClick(
+                view.findViewById(R.id.unit_composition_preview_layout),
+                view.findViewById(R.id.unit_composition_expandable_layout),
+                view.findViewById(R.id.unit_composition_preview_dropdown_iv));
+
         if (enhancements.isEmpty()) {
-            view.findViewById(R.id.wargear_options_preview_layout).setVisibility(View.GONE);
-            view.findViewById(R.id.wargear_options_expandable_layout).setVisibility(View.GONE);
+            view.findViewById(R.id.enhancements_preview_layout).setVisibility(View.GONE);
+            view.findViewById(R.id.enhancements_preview_layout).setVisibility(View.GONE);
         } else {
             setExpandableOnClick(
-                    view.findViewById(R.id.wargear_options_preview_layout),
-                    view.findViewById(R.id.wargear_options_expandable_layout),
-                    view.findViewById(R.id.wargear_options_preview_dropdown_iv));
+                    view.findViewById(R.id.enhancements_preview_layout),
+                    view.findViewById(R.id.enhancements_expandable_layout),
+                    view.findViewById(R.id.enhancements_preview_dropdown_iv));
         }
 
         if (unit.getWargearOptions().isEmpty()) {
@@ -265,15 +269,26 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
                     view.findViewById(R.id.wargear_options_preview_dropdown_iv));
         }
 
-        setExpandableOnClick(
-                view.findViewById(R.id.unit_composition_preview_layout),
-                view.findViewById(R.id.unit_composition_expandable_layout),
-                view.findViewById(R.id.unit_composition_preview_dropdown_iv));
+        // TODO make include all stratagems when Reference version
+        if (roster != null) {
+            ArrayList<Stratagem> elligableStratagems = roster.detachment.stratagems;
 
-        setExpandableOnClick(
-                view.findViewById(R.id.keywords_preview_layout),
-                view.findViewById(R.id.keywords_expandable_layout),
-                view.findViewById(R.id.keywords_preview_dropdown_iv));
+            if (elligableStratagems.isEmpty()) {
+                view.findViewById(R.id.stratagem_preview_layout).setVisibility(View.GONE);
+                view.findViewById(R.id.stratagem_expandable_layout).setVisibility(View.GONE);
+            } else {
+                stratagemAdapter = new StratagemAdapter(elligableStratagems);
+                stratagemAdapter.setListener(this);
+                stratagemRv = view.findViewById(R.id.stratagem_rv);
+                stratagemRv.setAdapter(stratagemAdapter);
+                stratagemRv.setLayoutManager(new LinearLayoutManager(mainActivity));
+
+                setExpandableOnClick(
+                        view.findViewById(R.id.stratagem_preview_layout),
+                        view.findViewById(R.id.stratagem_expandable_layout),
+                        view.findViewById(R.id.stratagem_preview_dropdown_iv));
+            }
+        }
 
         // Initializes AbilityAdapter and RecyclerView
         abilityAdapter = new AbilityAdapter(unit.getAbilities());
@@ -302,25 +317,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         modelRv.setLayoutManager(new LinearLayoutManager(mainActivity));
 
 
-
-        // TODO make include all stratagems when Reference version
-        if (roster != null) {
-            ArrayList<Stratagem> elligableStratagems = roster.detachment.stratagems;
-
-            stratagemAdapter = new StratagemAdapter(elligableStratagems);
-            stratagemAdapter.setListener(this);
-            stratagemRv = view.findViewById(R.id.stratagem_rv);
-            stratagemRv.setAdapter(stratagemAdapter);
-            stratagemRv.setLayoutManager(new LinearLayoutManager(mainActivity));
-        }
-
-
-        setExpandableOnClick(
-                view.findViewById(R.id.stratagem_preview_layout),
-                view.findViewById(R.id.stratagem_expandable_layout),
-                view.findViewById(R.id.stratagem_preview_dropdown_iv));
     }
-
     private void initWeapons() {
         // Crude method for obtaining unique Weapons
         allWeaponProfiles = new ArrayList<ArrayList<Weapon>>();
@@ -400,6 +397,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         meleeWeaponAdapter.notifyDataSetChanged();
         pointsAdapter.notifyDataSetChanged();
         modelAdapter.notifyDataSetChanged();
+        setToolbar();
     }
     // StratagemListener Implementation Methods
     public Roster getRoster() {
@@ -456,8 +454,9 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         intent.putExtra("WargearOption", (Parcelable) wargearOption);
         startActivity(intent);
     }
-    public void onModelClick(Model model) {
-      //  modelWargearOptionsResultLauncher.launch(new Pair<>(unit, model));
+    public void removeModel(ModelComposition modelComposition, Model model) {
+        modelComposition.removeModel(model, 1);
+
     }
 
     public Unit getUnit() {
@@ -480,4 +479,10 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
 
         return true;
     }
+
+    public void setToolbar() {
+        toolbar.setTitle(unit.getName());
+        toolbar.setSubtitle(roster.getUnitOccurance(unit.getName()));
+    }
+
 }

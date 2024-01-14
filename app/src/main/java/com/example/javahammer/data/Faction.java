@@ -1,8 +1,5 @@
 package com.example.javahammer.data;
 
-import android.app.GameState;
-import android.content.res.Resources;
-
 import com.example.javahammer.App;
 import com.example.javahammer.R;
 
@@ -31,25 +28,53 @@ public class Faction implements Serializable {
                                         "Artificer Armour",
                                         10,
                                         "Crafted by the Chapter’s finest artificers, this suit of armour provides superior protection.",
-                                        "ADEPTUS ASTARTES model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
+                                        "ADEPTUS ASTARTES model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability.",
+                                        new Predicate<EnumSet<Model.ModelKeywords>>() {
+                                            @Override
+                                            public boolean test(EnumSet<Model.ModelKeywords> keywords) {
+                                                return keywords.contains(Model.ModelKeywords.ADEPTUS_ASTARTES);
+                                            }
+                                        }
                                 ));
                                 add(new Enhancement(
                                         "The Honour Vehement",
                                         15,
                                         "This stanza is inscribed on thrice-blessed parchment and affixed to its bearers’ wargear with a purity seal, there to inspire them to heroic acts of martial prowess.",
                                         "ADEPTUS ASTARTES model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearers melee weapons instead."
+                                        ,
+                                        new Predicate<EnumSet<Model.ModelKeywords>>() {
+                                            @Override
+                                            public boolean test(EnumSet<Model.ModelKeywords> keywords) {
+                                                return keywords.contains(Model.ModelKeywords.ADEPTUS_ASTARTES);
+                                            }
+                                        }
                                 ));
                                 add(new Enhancement(
                                         "Adept of the Codex",
                                         20,
                                         "An ardent student of the Codex Astartes, this commander epitomises its tactical genius, and the wisdom gleaned from its teachings guides their measured strategic responses amidst the fiercest battle.",
                                         "CAPTAIN model only. At the start of your Command phase, if the bearer is on the battlefield, instead of selecting a Combat Doctrine to be active for your army, you can select the Tactical Doctrine. If you do, until the start of your next Command phase, that Combat Doctrine is active for the bearer’s unit only, even if you have already selected that Combat Doctrine to be active for your army this battle."
+
+                                        ,
+                                        new Predicate<EnumSet<Model.ModelKeywords>>() {
+                                            @Override
+                                            public boolean test(EnumSet<Model.ModelKeywords> keywords) {
+                                                return keywords.contains(Model.ModelKeywords.CAPTAIN);
+                                            }
+                                        }
                                 ));
                                 add(new Enhancement(
                                         "Fire Discipline",
                                         30,
                                         "This commander drills his warriors relentlessly; combined with the Adeptus Astartes’ incredible reflexes, they produce a devastating rate of fire.",
                                         "ADEPTUS ASTARTES model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, each time a model in that unit makes a ranged attack, a successful unmodified Hit roll of 5+ scores a Critical Hit."
+                                        ,
+                                        new Predicate<EnumSet<Model.ModelKeywords>>() {
+                                            @Override
+                                            public boolean test(EnumSet<Model.ModelKeywords> keywords) {
+                                                return keywords.contains(Model.ModelKeywords.ADEPTUS_ASTARTES);
+                                            }
+                                        }
                                 ));
 
                             }},
@@ -64,7 +89,7 @@ public class Faction implements Serializable {
                                         "Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
                                         "",
                                         EnumSet.of(Phase.SHOOTING, Phase.FIGHT),
-                                        EnumSet.of(PlayerTurn.OWNER),
+                                        EnumSet.of(PlayerTurn.OPPONENT),
                                         new Predicate<WarhammerGameState>() {
                                             @Override
                                             public boolean test(WarhammerGameState warhammerGameState) {
@@ -750,8 +775,8 @@ public class Faction implements Serializable {
                                         "One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
                                         "Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
                                         "",
-                                        EnumSet.of(Phase.FIGHT),
-                                        EnumSet.of(PlayerTurn.OWNER),
+                                        EnumSet.of(Phase.SHOOTING, Phase.FIGHT),
+                                        EnumSet.of(PlayerTurn.OPPONENT),
                                         new ArrayList<Timing>() {{
                                             add(new Timing(Timing.PlayerTurn.OPPONENT_TURN, Timing.TimingEnum.SHOOTING_MIDDLE, Timing.BattleRound.NONE));
                                             add(new Timing(Timing.PlayerTurn.NONE, Timing.TimingEnum.FIGHT_MIDDLE, Timing.BattleRound.NONE));
@@ -767,7 +792,7 @@ public class Faction implements Serializable {
                                         "One ADEPTUS ASTARTES unit from your army.",
                                         "Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for that unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that doctrine this battle.",
                                         "",
-                                        EnumSet.of(Phase.FIGHT),
+                                        EnumSet.of(Phase.COMMAND),
                                         EnumSet.of(PlayerTurn.OWNER),
                                         new ArrayList<Timing>() {{
                                             add(new Timing(Timing.PlayerTurn.PLAYER_TURN, Timing.TimingEnum.COMMAND_MIDDLE, Timing.BattleRound.NONE));
@@ -799,7 +824,7 @@ public class Faction implements Serializable {
                                         "One ADEPTUS ASTARTES unit from your army.",
                                         " Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
                                         "",
-                                        EnumSet.of(Phase.FIGHT),
+                                        EnumSet.of(Phase.SHOOTING),
                                         EnumSet.of(PlayerTurn.OWNER),
                                         new ArrayList<Timing>() {{
                                             add(new Timing(Timing.PlayerTurn.PLAYER_TURN, Timing.TimingEnum.SHOOTING_MIDDLE, Timing.BattleRound.NONE));
@@ -852,6 +877,229 @@ public class Faction implements Serializable {
 
                     // Characters
 
+
+                    add(new Unit(
+
+                            // Unit Name
+                            "Captain",
+
+                            // Unit Image Asset
+                            R.drawable.primaris_captain,
+
+                            // Unit Abilities
+                            new ArrayList<Ability>() {{
+                                add(new Ability("Rites of Battle", "Once per battle round, one unit from your army with this ability can be targeted by a Stratagem for 0CP, even if another unit from your army has already been targeted by that Stratagem this phase."));
+                                add(new Ability("Finest Hour", "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the [DEVASTATING WOUNDS] ability."));
+                            }},
+
+                            // Unit Wargear Abilities
+                            new ArrayList<Ability>() {{
+                                add(new Ability("Relic Shield", "The bearer has a Wounds characteristic of 6."));
+                            }},
+
+                            // Unit Composition
+                            new ArrayList<ModelComposition>() {{
+
+                                add(new ModelComposition(
+                                        new Model(
+                                                // Model Name
+                                                "Captain",
+                                                // Model Statline
+                                                new Statline( 6, 4, 3, 4,5, 6, 1),
+                                                // Model Default Wargear
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_BOLTGUN),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_CLOSE_COMBAT_WEAPON))
+                                                ),
+
+                                                // Model Specific Keywords
+                                                EnumSet.noneOf(Model.ModelKeywords.class)
+                                        ),
+                                        // Minimum Model Occurance
+                                        1,
+                                        // Maximum Model Occurance
+                                        1)
+                                );
+                            }},
+
+                            // Unit Wargear Options
+                            new ArrayList<WargearOption>() {{
+                                add(new WargearOption(
+                                        "",
+                                        new ArrayList<>(Arrays.asList(
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_BOLTGUN),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_CLOSE_COMBAT_WEAPON)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_HEAVY_BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_POWER_FIST)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_HEAVY_BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_NEO_VOLKITE_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_POWER_FIST)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_NEO_VOLKITE_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_PLASMA_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_POWER_FIST)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_PLASMA_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_HEAVY_BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.RELIC_SHIELD)
+                                                ))
+                                        )),
+                                        1
+                                ));
+                                add(new WargearOption(
+                                        "",
+                                        new ArrayList<>(Arrays.asList(
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_CLOSE_COMBAT_WEAPON)
+                                                )),
+
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON)
+                                                )),
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CAPTAIN_POWER_FIST)
+                                                ))
+                                        )),
+                                        1
+                                ));
+                            }},
+
+                            // Unit Points Cost
+                            new ArrayList<PointsThreshold>() {{
+                                add(new PointsThreshold(75, 5));
+                                add(new PointsThreshold(150, 10));
+                            }},
+
+                            // Unit Keywords
+                            EnumSet.of(Model.ModelKeywords.INFANTRY, Model.ModelKeywords.CHARACTER, Model.ModelKeywords.GRENADES, Model.ModelKeywords.TACTICUS, Model.ModelKeywords.CAPTAIN)
+                    ));
+
+
+
+                    add(new Unit(
+
+                            // Unit Name
+                            "Intercessor Squad",
+
+                            // Unit Image Asset
+                            R.drawable.intercessor,
+
+                            // Unit Abilities
+                            new ArrayList<Ability>() {{
+                                add(new Ability("Broad Spectrum Data-tether", "Each time you select this unit as the target of a Stratagem, roll one D6: on a 5+, "));
+                            }},
+
+                            // Unit Wargear Abilities
+                            new ArrayList<Ability>() {{
+                            }},
+
+                            // Unit Composition
+                            new ArrayList<ModelComposition>() {{
+
+                                add(new ModelComposition(
+                                        new Model(
+                                                // Model Name
+                                                "Intercessor Sergeant",
+                                                // Model Statline
+                                                new Statline( 6, 4, 3, 2, 6, 2),
+                                                // Model Default Wargear
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.BOLT_RIFLE),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CLOSE_COMBAT_WEAPON))),
+
+                                                // Model Specific Keywords
+                                                EnumSet.noneOf(Model.ModelKeywords.class)
+                                        ),
+                                    // Minimum Model Occurance
+                                    1,
+                                    // Maximum Model Occurance
+                                    1)
+                                );
+
+                                add(new ModelComposition(
+                                        new Model("Intercessor",new Statline( 6, 4, 3, 2, 6, 2),
+                                                new ArrayList<>(Arrays.asList(
+                                                        Weapon.armory.get(Weapon.WeaponEnums.BOLT_PISTOL),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.BOLT_RIFLE),
+                                                        Weapon.armory.get(Weapon.WeaponEnums.CLOSE_COMBAT_WEAPON))),
+                                                EnumSet.noneOf(Model.ModelKeywords.class)),
+                                        4, 9));
+                            }},
+
+                            // Unit Wargear Options
+                            new ArrayList<WargearOption>() {{
+                                add(new WargearOption(
+                                        "Intercessor Sergeant",
+                                        new ArrayList<>(Arrays.asList(
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.CLOSE_COMBAT_WEAPON))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.ASTARTES_CHAINSWORD))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.POWER_WEAPON))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.POWER_FIST))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.THUNDER_HAMMER)))
+                                        )),
+                                        1
+                                ));
+                                add(new WargearOption(
+                                        "Intercessor Sergeant",
+                                        new ArrayList<>(Arrays.asList(
+                                                new ArrayList<>(Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.BOLT_PISTOL))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.ASTARTES_CHAINSWORD))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.HAND_FLAMER))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.PLASMA_PISTOL))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.POWER_WEAPON)))
+                                        )),
+                                        1
+                                ));
+                                add(new WargearOption(
+                                        "",
+                                        new ArrayList<>(Arrays.asList(
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.BOLT_RIFLE))),
+                                                new ArrayList<> (Collections.singletonList(Weapon.armory.get(Weapon.WeaponEnums.ASTARTES_GRENADE_LAUNCHER)))
+                                        )),
+                                        0.2
+                                ));
+                            }},
+
+                            // Unit Points Cost
+                            new ArrayList<PointsThreshold>() {{
+                                add(new PointsThreshold(75, 5));
+                                add(new PointsThreshold(150, 10));
+                            }},
+
+                            // Unit Keywords
+                            EnumSet.of(Model.ModelKeywords.INFANTRY, Model.ModelKeywords.BATTLELINE, Model.ModelKeywords.GRENADES, Model.ModelKeywords.TACTICUS, Model.ModelKeywords.INTERCESSOR_SQUAD)
+                    ));
+
+
+
+                    // Battleline
                     add(new Unit(
                             "Intercessor Squad",
                             R.drawable.intercessor,

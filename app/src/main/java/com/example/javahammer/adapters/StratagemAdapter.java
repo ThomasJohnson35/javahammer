@@ -2,6 +2,7 @@ package com.example.javahammer.adapters;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javahammer.R;
@@ -57,7 +59,7 @@ public class StratagemAdapter extends RecyclerView.Adapter<StratagemAdapter.View
 
         holder.name.setText("" +stratagem.name);
         holder.cp.setText("" +stratagem.commandPointCost +" CP");
-        holder.detachment.setText("" + listener.getDetachment());
+        holder.detachment.setText(stratagem.getDetachment());
         holder.type.setText(stratagem.stratagemType.toString());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -67,31 +69,24 @@ public class StratagemAdapter extends RecyclerView.Adapter<StratagemAdapter.View
             }
         });
 
-        if (stratagem.alertTiming == null) {
-            holder.layout.setBackgroundColor(context.getResources().getColor(R.color.white));
+
+
+       // holder.itemView.setBackgroundColor(context.getResources().getColor(stratagem.getTurnColorTint()));
+        holder.itemView.setBackgroundTintList(ColorStateList.valueOf(context.getResources().getColor(stratagem.getTurnColorTint())));
+        Pair<Integer, Integer> imageRes = stratagem.getPhasesImageRes();
+
+        if (imageRes == null) {
+            throw new IllegalArgumentException();
+        } else if (imageRes.first == null) {
+            holder.phaseOneIv.setVisibility(View.INVISIBLE);
+            holder.phaseTwoIv.setVisibility(View.INVISIBLE);
+        } else if (imageRes.second == null) {
+            holder.phaseTwoIv.setImageResource(imageRes.first);
+            holder.phaseTwoIv.setVisibility(View.INVISIBLE);
         } else {
-
-            holder.layout.setBackgroundColor(stratagem.getTurnColorTint());
-
-            Pair<Integer, Integer> imageRes = stratagem.getPhasesImageRes();
-
-
-            if (imageRes == null) {
-                throw new IllegalArgumentException();
-            } else if (imageRes.first == null) {
-                holder.phaseOneIv.setVisibility(View.INVISIBLE);
-                holder.phaseTwoIv.setVisibility(View.INVISIBLE);
-            } else if (imageRes.second == null) {
-                holder.phaseTwoIv.setImageResource(imageRes.first);
-                holder.phaseTwoIv.setVisibility(View.INVISIBLE);
-            } else {
-                holder.phaseOneIv.setImageResource(imageRes.first);
-                holder.phaseTwoIv.setImageResource(imageRes.second);
-            }
+            holder.phaseOneIv.setImageResource(imageRes.first);
+            holder.phaseTwoIv.setImageResource(imageRes.second);
         }
-
-
-
 
     }
 
@@ -101,7 +96,6 @@ public class StratagemAdapter extends RecyclerView.Adapter<StratagemAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ConstraintLayout layout;
         public TextView name, cp, detachment, type;
         public ImageView phaseOneIv, phaseTwoIv;
         public RecyclerView wargearRv;
@@ -109,7 +103,6 @@ public class StratagemAdapter extends RecyclerView.Adapter<StratagemAdapter.View
         public ViewHolder(View itemView) {
             super(itemView);
 
-            layout = itemView.findViewById(R.id.stratagem_layout);
             name = itemView.findViewById(R.id.stratagem_name_tv);
 
             cp = itemView.findViewById(R.id.stratagem_cp_tv);

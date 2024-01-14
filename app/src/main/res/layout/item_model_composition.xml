@@ -38,9 +38,10 @@
             android:scaleType="centerInside"
             android:scaleX="2"
             android:scaleY="2"
+            app:tint="@color/green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/plus_svgrepo_com" />
+            app:srcCompat="@drawable/plus_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView

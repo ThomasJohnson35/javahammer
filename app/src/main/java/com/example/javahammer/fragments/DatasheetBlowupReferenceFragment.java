@@ -6,12 +6,21 @@ import com.example.javahammer.data.Roster;
 import com.example.javahammer.data.Unit;
 
 public class DatasheetBlowupReferenceFragment extends DatasheetBlowupFragment{
-    public DatasheetBlowupReferenceFragment(Unit unit, Fragment prevFragment) {
+
+    BrowseUnitsFragment prevFragment;
+    public DatasheetBlowupReferenceFragment(Unit unit, BrowseUnitsFragment prevFragment) {
         super(null, unit, prevFragment);
+        this.prevFragment = prevFragment;
     }
 
     @Override
     public void setToolbar() {
        toolbar.setTitle(unit.getName());
+    }
+
+    @Override
+    protected void setStratagems() {
+
+        prevFragment.faction.getDetachments().forEach(detachment -> elligableStratagems.addAll(detachment.getStratagems()));
     }
 }

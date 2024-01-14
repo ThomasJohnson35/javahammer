@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 public class BrowseUnitsFragment extends Fragment implements OnItemClickListener {
 
-    private Faction faction;
+    public Faction faction;
     private HashSet<Unit> units;
     private DatasheetAdapter adapter;
     SearchView searchView;

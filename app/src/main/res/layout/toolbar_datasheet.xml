@@ -5,7 +5,9 @@
     style="@style/search_bar_dark"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/alt_black" >
+    android:background="@color/alt_black"
+    app:subtitleTextColor="@color/white"
+    app:titleTextColor="@color/white">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

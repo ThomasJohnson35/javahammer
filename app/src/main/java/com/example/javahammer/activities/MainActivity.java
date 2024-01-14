@@ -8,11 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.javahammer.R;
 import com.example.javahammer.fragments.BrowseUnitsFragment;
-import com.example.javahammer.fragments.ChooseRosterFragment;
 import com.example.javahammer.fragments.DamageTestFragment;
 import com.example.javahammer.fragments.DatasheetBlowupReferenceFragment;
 import com.example.javahammer.fragments.EditRosterSettingsFragment;
@@ -62,23 +60,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.reference:
+                case R.id.rules_reference:
                    // Toast.makeText(MainActivity.this, "" + (bottomNavigationView.getSelectedItemId() == R.id.reference), Toast.LENGTH_SHORT).show();
                     // Represents a double-tap on bottom nav
 
                     replaceFragment(
-                            (bottomNavigationView.getSelectedItemId() == R.id.reference || referenceFragment == null) ?
+                            (bottomNavigationView.getSelectedItemId() == R.id.rules_reference || referenceFragment == null) ?
                                     new ReferenceFragment() : referenceFragment);
                     break;
-                case R.id.roster_library:
+                case R.id.roster_editor:
                     replaceFragment(
-                            (bottomNavigationView.getSelectedItemId() == R.id.roster_library || battleForgeFragment == null) ?
+                            (bottomNavigationView.getSelectedItemId() == R.id.roster_editor || battleForgeFragment == null) ?
                                     new RosterLibraryFragment() : battleForgeFragment);
                     break;
 
-                case R.id.unused:
+                case R.id.damage_calculator:
                     replaceFragment(
-                            (bottomNavigationView.getSelectedItemId() == R.id.unused || damageTestFragment == null) ?
+                            (bottomNavigationView.getSelectedItemId() == R.id.damage_calculator || damageTestFragment == null) ?
                                     new DamageTestFragment() : damageTestFragment);
                     break;
                 default:
@@ -87,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.roster_library);
+        bottomNavigationView.setSelectedItemId(R.id.roster_editor);
     }
 
     @Override

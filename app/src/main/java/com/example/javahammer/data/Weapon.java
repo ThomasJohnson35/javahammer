@@ -15,8 +15,6 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,32 +22,70 @@ public class Weapon implements Parcelable, Comparable, Serializable {
 
 
     public enum WeaponEnums{
-        BOLT_RIFLE, BOLT_PISTOL, BOLTGUN, CLOSE_COMBAT_WEAPON, INCENDINE_COMBUSTOR, HAND_FLAMER, POWER_WEAPON, POWER_FIST, THUNDER_HAMMER, ASTARTES_CHAINSWORD, ASTARTES_GRENADE_LAUNCHER, PLASMA_PISTOL, COGNIS_HEAVY_STUBBER_ARRAY, COGNIS_HEAVY_STUBBER, TWIN_COGNIS_LASCANNON, GALVANIC_RIFLE, RADIUM_CARBINE, ARCHEOTECH_PISTOL, PLASMA_CALIVER, ARC_RIFLE, TRANSURANIC_ARQUEBUS, SKITARII_RANGER_COMBAT_WEAPON, PHOSOPHOR_SERPENTA, RADIUM_JEZZAIL, IRONSTRIDER_FEET, TASER_LANCE, MACROSTUBBER, ERADICATION_RAY, VOLKITE_BLASTER, OMNISSIAN_AXE, SERVO_ARM, MAGNARAIL_LANCE, TRANSONIC_CANNON, OMNISSIAN_STAFF, SERVO_ARC_CLAW, TWIN_COGNIS_AUTOCANNON, ARMOURED_HULL, HEAVY_PHOSPHOR_BLASTER, ELECTROSTATIC_GAUNTLETS_RANGED, ELECTROSTATIC_GAUNTLETS_MELEE, ELECTROLEECH_STAVE, KASTELAN_PHOSPHOR_BLASTER, TWIN_KASTELAN_PHOSPHOR_BLASTER, KASTELAN_CLOSE_COMBAT_WEAPON, KASTELAN_FIST, TWIN_KASTELAN_FIST, CAWLS_OMNISSIAN_AXE, MECHADENDRITE_HIVE, ARC_SCOURGE, SOLAR_ATOMISER, ARC_CLAW, HYDRAULIC_CLAW, TORSION_CANNON, HEAVY_ARC_RIFLE, COGNIS_FLAMER, HEAVY_GRAV_CANNON, KATAPHRON_CLOSE_COMBAT, PHOSPHOR_BLASTER, FLECHETTE_BLASTER, STUBCARBINE, TASER_GOAD, SICARIAN_POWER_WEAPON, KATAPHRON_PLASMA_CULVERIN, BELLEROS_ENERGY_CANNON, DISRUPTOR_MISSILE_LAUNCHER, FERRUMITE_CANNON, TRANSONIC_RAZOR, TRANSONIC_RAZOR_AND_CHORDCLAW, TRANSONIC_BLADES, TRANSONIC_BLADES_AND_CHORDCLAW, SHIELDBREAKER_MISSILE_LAUNCHER, PLASMA_DECIMATOR_STANDARD, PLASMA_DECIMATOR, TWIN_MELTAGUN, VOLCANO_LANCE, TWIN_SIEGEBREAKER_CANNON, TITANIC_FEET, HEAVY_FLAMER, AVENGER_GATLING_CANNON, ICARUS_AUTOCANNONS, IRONSTORM_MISSILE_PODS, MELTAGUN, QUESTORIS_HEAVY_STUBBER, STORMSPEAR_ROCKET_POD, RAPIDFIRE_BATTLE_CANNON, THERMAL_CANNON, DOMINUS_TITANIC_FEET, REAPER_CHAINSWORD, THUNDERSTRIKE_GAUNTLET, CONFLAGURATION_CANNON, THUNDERCOIL_HARPOON, ARMIGER_AUTOCANNON, ARMIGER_FEET, THERMAL_SPEAR, REAPER_CHAIN_CLEAVER, ENHANCED_DATA_TETHER, OMNISPEX, COMMAND_UPLINK, CHAFF_LAUNCHER, HEAVY_BOLT_RIFLE, HEAVY_BOLT_PISTOL, HEAVY_BOLTER;
+        BOLT_RIFLE, BOLT_PISTOL, BOLTGUN, CLOSE_COMBAT_WEAPON, INCENDINE_COMBUSTOR, HAND_FLAMER, POWER_WEAPON, POWER_FIST, THUNDER_HAMMER, ASTARTES_CHAINSWORD, ASTARTES_GRENADE_LAUNCHER, PLASMA_PISTOL, COGNIS_HEAVY_STUBBER_ARRAY, COGNIS_HEAVY_STUBBER, TWIN_COGNIS_LASCANNON, GALVANIC_RIFLE, RADIUM_CARBINE, ARCHEOTECH_PISTOL, PLASMA_CALIVER, ARC_RIFLE, TRANSURANIC_ARQUEBUS, SKITARII_RANGER_COMBAT_WEAPON, PHOSOPHOR_SERPENTA, RADIUM_JEZZAIL, IRONSTRIDER_FEET, TASER_LANCE, MACROSTUBBER, ERADICATION_RAY, VOLKITE_BLASTER, OMNISSIAN_AXE, SERVO_ARM, MAGNARAIL_LANCE, TRANSONIC_CANNON, OMNISSIAN_STAFF, SERVO_ARC_CLAW, TWIN_COGNIS_AUTOCANNON, ARMOURED_HULL, HEAVY_PHOSPHOR_BLASTER, ELECTROSTATIC_GAUNTLETS_RANGED, ELECTROSTATIC_GAUNTLETS_MELEE, ELECTROLEECH_STAVE, KASTELAN_PHOSPHOR_BLASTER, TWIN_KASTELAN_PHOSPHOR_BLASTER, KASTELAN_CLOSE_COMBAT_WEAPON, KASTELAN_FIST, TWIN_KASTELAN_FIST, CAWLS_OMNISSIAN_AXE, MECHADENDRITE_HIVE, ARC_SCOURGE, SOLAR_ATOMISER, ARC_CLAW, HYDRAULIC_CLAW, TORSION_CANNON, HEAVY_ARC_RIFLE, COGNIS_FLAMER, HEAVY_GRAV_CANNON, KATAPHRON_CLOSE_COMBAT, PHOSPHOR_BLASTER, FLECHETTE_BLASTER, STUBCARBINE, TASER_GOAD, SICARIAN_POWER_WEAPON, KATAPHRON_PLASMA_CULVERIN, BELLEROS_ENERGY_CANNON, DISRUPTOR_MISSILE_LAUNCHER, FERRUMITE_CANNON, TRANSONIC_RAZOR, TRANSONIC_RAZOR_AND_CHORDCLAW, TRANSONIC_BLADES, TRANSONIC_BLADES_AND_CHORDCLAW, SHIELDBREAKER_MISSILE_LAUNCHER, PLASMA_DECIMATOR_STANDARD, PLASMA_DECIMATOR, TWIN_MELTAGUN, VOLCANO_LANCE, TWIN_SIEGEBREAKER_CANNON, TITANIC_FEET, HEAVY_FLAMER, AVENGER_GATLING_CANNON, ICARUS_AUTOCANNONS, IRONSTORM_MISSILE_PODS, MELTAGUN, QUESTORIS_HEAVY_STUBBER, STORMSPEAR_ROCKET_POD, RAPIDFIRE_BATTLE_CANNON, THERMAL_CANNON, DOMINUS_TITANIC_FEET, REAPER_CHAINSWORD, THUNDERSTRIKE_GAUNTLET, CONFLAGURATION_CANNON, THUNDERCOIL_HARPOON, ARMIGER_AUTOCANNON, ARMIGER_FEET, THERMAL_SPEAR, REAPER_CHAIN_CLEAVER, ENHANCED_DATA_TETHER, OMNISPEX, COMMAND_UPLINK, CHAFF_LAUNCHER, HEAVY_BOLT_RIFLE, HEAVY_BOLT_PISTOL, HEAVY_BOLTER, CAPTAIN_CLOSE_COMBAT_WEAPON, RELIC_SHIELD, CAPTAIN_MASTER_CRAFTED_POWER_WEAPON, CAPTAIN_POWER_FIST, CAPTAIN_HEAVY_BOLT_PISTOL, CAPTAIN_PLASMA_PISTOL, CAPTAIN_NEO_VOLKITE_PISTOL, CAPTAIN_BOLT_PISTOL, CAPTAIN_MASTER_CRAFTED_BOLTGUN, RELIC_FIST, RELIC_CHAINSWORD, RELIC_BLADE, CAPTAIN_BOLTSTORM_GAUNTLET, CAPTAIN_MASTER_CRAFTED_HEAVY_BOLT_RIFLE, ABSOLVER_BOLT_PISTOL, CROZIUS_ARCANUM, LIBRARIAN_FORCE_WEAPON, LIBRARIAN_SMITE, TECHMARINE_OMNISSIAN_AXE, TECHMARINE_SERVO_ARM, TECHMARINE_GRAV_PISTOL, TECHMARINE_FORGE_BOLTER;
     }
     public static final HashMap<WeaponEnums, Wargear> armory = new HashMap<WeaponEnums, Wargear>() {{
 
         // Astartes
-        put(WeaponEnums.BOLT_PISTOL, new Wargear(new Weapon("Bolt Pistol", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 4, 0, "1")));
-        put(WeaponEnums.HEAVY_BOLT_PISTOL, new Wargear(new Weapon("Heavy Bolt Pistol", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 4, 1, "1")));
 
+        // Ranged Weapons
 
         put(WeaponEnums.ASTARTES_GRENADE_LAUNCHER, new Wargear("Astartes Grenade Launcher",
                 new Weapon("Astartes Grenade Launcher - Frag", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.BLAST));}},  30, "D3", 3, 4, 0, "1"),
                 new Weapon("Astartes Grenade Launcher - Krak", 30, "1", 3, 9, 2, "D3")
-                ));
+        ));
+        put(WeaponEnums.ABSOLVER_BOLT_PISTOL, new Wargear(new Weapon("Absolver Bolt Pistol", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 5, 1, "2")));
+
+        put(WeaponEnums.BOLT_PISTOL, new Wargear(new Weapon("Bolt Pistol", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 4, 0, "1")));
         put(WeaponEnums.BOLT_RIFLE, new Wargear(new Weapon("Bolt Rifle",  new HashSet<wepAbilities>() {{add(new wepAbilities(Keywords.ASSAULT)); add(new wepAbilities(Keywords.HEAVY));}}, 30, "2", 3, 4, 1, "1")));
+        put(WeaponEnums.CAPTAIN_BOLT_PISTOL, new Wargear(new Weapon("Bolt Pistol", 12, "1", 2, 4, 0, "1", new wepAbilities(Keywords.PISTOL))));
+        put(WeaponEnums.CAPTAIN_HEAVY_BOLT_PISTOL, new Wargear(new Weapon("Heavy Bolt Pistol", 18, "1", 2, 4, 1, "1", new wepAbilities(Keywords.PISTOL))));
+        put(WeaponEnums.CAPTAIN_MASTER_CRAFTED_BOLTGUN, new Wargear(new Weapon("Master-crafted Boltgun", 24, "2", 2, 4, 1, "2")));
+        put(WeaponEnums.CAPTAIN_NEO_VOLKITE_PISTOL, new Wargear(new Weapon("Neo-volkite Pistol", 12, "1", 2, 5, 0, "2", new wepAbilities(Keywords.DEVASTATING_WOUNDS) ,new wepAbilities(Keywords.PISTOL))));
+        put(WeaponEnums.CAPTAIN_PLASMA_PISTOL, new Wargear("Plasma Pistol", new ArrayList<Weapon>() {{
+            add(new Weapon("Plasma Pistol - Standard", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 2, 7, 2, "1"));
+            add(new Weapon("Plasma Pistol - Supercharge", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL)); add(new wepAbilities(Keywords.HAZARDOUS));}}, 12, "1", 2, 8, 3, "2"));
+        }}));
+
+        put(WeaponEnums.CAPTAIN_BOLTSTORM_GAUNTLET, new Wargear(new Weapon("Boltstorm Gauntlet", 12, "3", 2, 4, 1, "1", new wepAbilities(Keywords.PISTOL))));
+        put(WeaponEnums.CAPTAIN_MASTER_CRAFTED_HEAVY_BOLT_RIFLE, new Wargear(new Weapon("Master-crafted Heavy Bolt Rifle", 30, "2", 2, 5, 1, "2")));
+        put(WeaponEnums.HAND_FLAMER, new Wargear(new Weapon("Hand Flamer", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.IGNORES_COVER)); add(new wepAbilities(Keywords.TORRENT)); add(new wepAbilities(Keywords.PISTOL));}}, 12, "D6", 3, 4, 1, "1")));
+        put(WeaponEnums.HEAVY_BOLT_PISTOL, new Wargear(new Weapon("Heavy Bolt Pistol", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 4, 1, "1")));
         put(WeaponEnums.HEAVY_BOLT_RIFLE, new Wargear(new Weapon("Heavy Bolt Rifle",  new HashSet<wepAbilities>() {{add(new wepAbilities(Keywords.ASSAULT)); add(new wepAbilities(Keywords.HEAVY));}}, 30, "2", 3, 5, 1, "1")));
         put(WeaponEnums.HEAVY_BOLTER, new Wargear(new Weapon("Heavy Bolter",  new HashSet<wepAbilities>() {{add(new wepAbilities(Keywords.ASSAULT)); add(new wepAbilities(Keywords.HEAVY));}}, 30, "3", 4, 5, 1, "2")));
-        put(WeaponEnums.HAND_FLAMER, new Wargear(new Weapon("Hand Flamer", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.IGNORES_COVER)); add(new wepAbilities(Keywords.TORRENT)); add(new wepAbilities(Keywords.PISTOL));}}, 12, "D6", 3, 4, 1, "1")));
+        put(WeaponEnums.LIBRARIAN_SMITE, new Wargear("Smite",
+                new Weapon("Smite - Witchfire", 24, "D6", 3, 5, 1, "D3", new wepAbilities(Keywords.PSYCHIC)),
+                new Weapon("Smite - Focused Witchfire", 24, "D6", 3, 6, 2, "D3", new wepAbilities(Keywords.DEVASTATING_WOUNDS), new wepAbilities(Keywords.HAZARDOUS), new wepAbilities(Keywords.PSYCHIC))
+        ));
         put(WeaponEnums.PLASMA_PISTOL, new Wargear("Plasma Pistol",
                 new Weapon("Plasma Pistol - Standard", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 7, 2, "1"),
                 new Weapon("Plasma Pistol - Supercharge", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.PISTOL));}}, 12, "1", 3, 8, 3, "2")
         ));
+        put(WeaponEnums.TECHMARINE_FORGE_BOLTER, new Wargear(new Weapon("Forge Bolter",24, "3", 2, 5, 1, "2")));
+        put(WeaponEnums.TECHMARINE_GRAV_PISTOL, new Wargear(new Weapon("Grav-pistol", 12, "1", 2, 4, 1, "2", new wepAbilitiesAnti(Model.ModelKeywords.VEHICLE, 2), new wepAbilities(Keywords.PISTOL))));
+
+        // Melee Weapons
+        put(WeaponEnums.ASTARTES_CHAINSWORD, new Wargear(new Weapon("Astartes Chainsword",0, "2", 3, 4, 1, "1")));
+        put(WeaponEnums.CAPTAIN_CLOSE_COMBAT_WEAPON, new Wargear(new Weapon("Close Combat Weapon", 0, "6", 2, 4, 0, "1")));
+        put(WeaponEnums.CAPTAIN_MASTER_CRAFTED_POWER_WEAPON, new Wargear(new Weapon("Master-crafted Power Weapon", 0, "6", 2, 5, 2, "2")));
+        put(WeaponEnums.CAPTAIN_POWER_FIST, new Wargear(new Weapon("Power Fist", 0, "5", 2, 8, 2, "2")));
         put(WeaponEnums.CLOSE_COMBAT_WEAPON, new Wargear(new Weapon("Close Combat Weapon",0,  "3", 3, 4, 0, "1")));
+        put(WeaponEnums.CROZIUS_ARCANUM, new Wargear(new Weapon("Crozius Arcanum", 0, "5", 2, 6, 1, "2")));
+        put(WeaponEnums.LIBRARIAN_FORCE_WEAPON, new Wargear(new Weapon("Force Weapon", 0, "4", 3, 6, 1, "D3", new wepAbilities(Keywords.PSYCHIC))));
         put(WeaponEnums.POWER_WEAPON, new Wargear(new Weapon("Power Weapon",0, "3", 3, 5, 2, "1")));
         put(WeaponEnums.POWER_FIST, new Wargear(new Weapon("Power Fist", 0, "3", 3, 8, 2, "2")));
+        put(WeaponEnums.RELIC_BLADE, new Wargear(new Weapon("Relic Blade", 0, "2", 2, 5, 2, "2", new wepAbilities(Keywords.EXTRA_ATTACKS))));
+        put(WeaponEnums.RELIC_CHAINSWORD, new Wargear(new Weapon("Relic Chainsword", 0, "3", 2, 4, 1, "2", new wepAbilities(Keywords.EXTRA_ATTACKS))));
+        put(WeaponEnums.RELIC_FIST, new Wargear(new Weapon("Relic Fist", 0, "1", 2, 8, 2, "2", new wepAbilities(Keywords.EXTRA_ATTACKS))));
         put(WeaponEnums.THUNDER_HAMMER, new Wargear(new Weapon("Thunder Hammer", new HashSet<wepAbilities>(){{add(new wepAbilities(Keywords.DEVASTATING_WOUNDS));}}, 0, "3", 4, 8, 2, "2")));
-        put(WeaponEnums.ASTARTES_CHAINSWORD, new Wargear(new Weapon("Astartes Chainsword",0, "2", 3, 4, 1, "1")));
+
+        put(WeaponEnums.TECHMARINE_OMNISSIAN_AXE, new Wargear(new Weapon("Omnissian Power Axe", 0, "4", 3, 6, 2, "2")));
+        put(WeaponEnums.TECHMARINE_SERVO_ARM, new Wargear(new Weapon("Servo-arm", 0, "1", 3, 8, 2, "3", new wepAbilities(Keywords.EXTRA_ATTACKS))));
+
+        put(WeaponEnums.RELIC_SHIELD, new Wargear("Relic Shield"));
+
+        // ADEPTUS MECHANICUS
+
 
         // Cawl
         put(WeaponEnums.SOLAR_ATOMISER, new Wargear(new Weapon("Solar Atomiser", 18, "D3", 2, 14, 4, "3")));
@@ -325,6 +361,12 @@ public class Weapon implements Parcelable, Comparable, Serializable {
     public Weapon(String name, HashSet<wepAbilities> keywords, Integer range, String attacks, Integer bs, Integer strength, Integer ap, String damage) {
         this(name, range, attacks, bs, strength, ap, damage);
         this.keywords = keywords;
+    }
+
+    public Weapon(String rawString) {
+
+        Pattern regexp = Pattern.compile("/(.+) (\\[.+\\]) (\\d+\\\"|N\\/A) (\\d+) (\\d\\+) (.*) (.*) (.*)/gm");
+
     }
 
     public Weapon(String name, Integer range, String attacks, Integer bs, Integer strength, Integer ap, String damage, wepAbilities... wepAbilities) {

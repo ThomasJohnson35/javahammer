@@ -23,17 +23,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/remove_model_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#FFFFFF"
-            android:scaleType="centerInside"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:src="@drawable/red_minus_mark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/remove_model_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#FFFFFF"
+        android:scaleType="centerInside"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@drawable/minus_icon"
+        app:tint="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_wargear_rv"
@@ -46,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wargear_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/remove_model_btn"
         tools:itemCount="5"
         tools:listitem="@layout/item_wargear_option_alt" />
 

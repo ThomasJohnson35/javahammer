@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="20dp"
-    android:background="@color/warm_black"
-    android:backgroundTint="@color/astartes_blue_alt"
+    android:background="@color/alt_black"
     android:orientation="horizontal"
     android:visibility="visible"
     tools:visibility="visible">
@@ -14,15 +13,14 @@
         android:id="@+id/ranged_weapon_icon_iv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.5"
-        android:background="#404040"
-        app:srcCompat="@drawable/shooting_symbol" />
+        android:layout_weight="1"
+        android:background="#404040" />
 
     <TextView
         android:id="@+id/name_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3.2"
+        android:layout_weight="3.5"
         android:background="#404040"
         android:text="Weapon Name"
         android:textColor="#F4F4F4" />

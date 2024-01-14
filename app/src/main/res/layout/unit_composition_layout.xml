@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/unit_composition_expandable_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="10"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:text="This Unit Consists of the Following Model/s:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
+        android:id="@+id/model_distribution_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:text="\u2022 1 Intercessor Sergeant\n\u2022 4-9 Intercessors"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/dotted_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:padding="2dp"
+        app:srcCompat="@drawable/dotted" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/white"
+        android:text="Every Model is equipped with: Bolt Rifle, Bolt Pistol, Close Combat Weapon"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:text="This Unit Costs the following amount of points depending on the number of total models"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/points_map_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/white"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_points_and_units" />
+
+    <ImageView
+        android:id="@+id/dotted_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:cropToPadding="true"
+        android:padding="2dp"
+        app:srcCompat="@drawable/dotted" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/models_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_model_composition" />
+
+</LinearLayout>

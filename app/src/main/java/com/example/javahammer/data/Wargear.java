@@ -105,9 +105,14 @@ public class Wargear implements Serializable, Parcelable, Comparable {
 
         for (Wargear wargear : wargearArrayList) {
 
-            if (!wargear.weaponProfiles.isEmpty()) {
-                weaponProfileList.add(wargear.weaponProfiles);
+            try {
+                if (wargear.weaponProfiles == null | !wargear.weaponProfiles.isEmpty()) {
+                    weaponProfileList.add(wargear.weaponProfiles);
+                }
+            } catch (NullPointerException e) {
+                System.out.println(wargear);
             }
+
         }
         return weaponProfileList;
     }

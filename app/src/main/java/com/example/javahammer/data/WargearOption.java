@@ -158,6 +158,7 @@ public class WargearOption implements Parcelable, Serializable {
 
         StringBuffer stringBuffer = new StringBuffer();
 
+        stringBuffer.append(String.format("\t\u2022 "));
         // AMOUNT OF SWAPS
         if (activationsRatio != 0) {
             //eg. 1 in 3
@@ -190,7 +191,7 @@ public class WargearOption implements Parcelable, Serializable {
         } else {
             stringBuffer.append(" one of the following:");
             for (int i = 1; i < exchangeableWargear.size(); i++) {
-                stringBuffer.append(String.format("\n\u2022%s", exchangeableWargear.get(i)));
+                stringBuffer.append(String.format("\n\t\t\u2022 %s", exchangeableWargear.get(i)));
             }
         }
 

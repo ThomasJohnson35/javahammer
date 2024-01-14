@@ -5,7 +5,7 @@
     android:id="@+id/statline_labels"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/warm_black"
+    android:background="@color/alt_black"
     android:backgroundTint="#002196F3"
     android:backgroundTintMode="add"
     app:layout_constraintStart_toStartOf="parent"
@@ -14,10 +14,13 @@
     <TextView
         android:id="@+id/invuln_save_label_tv"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:text="Invulnerable Save"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

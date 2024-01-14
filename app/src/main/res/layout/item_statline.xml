@@ -4,7 +4,7 @@
     android:id="@+id/statline_labels"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/warm_black"
+    android:background="@color/alt_black"
     android:orientation="horizontal"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">

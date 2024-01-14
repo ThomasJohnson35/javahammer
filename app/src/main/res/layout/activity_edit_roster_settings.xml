@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/included_toolbar_edit_roster_settings"
             layout="@layout/generic_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:foreground="@drawable/fade_down_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintTop_toBottomOf="@+id/included_toolbar_edit_roster_settings"
             app:srcCompat="@drawable/adeptus_custodes_wide" />
 
         <TextView
@@ -61,7 +61,7 @@
                 android:id="@+id/edit_roster_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/reference"
+        android:id="@+id/rules_reference"
         android:icon="@drawable/open_book_icon"
-        android:title="Reference" />
+        android:title="Rules Reference" />
     <item
-        android:id="@+id/roster_library"
-        android:icon="@drawable/soldier"
-        android:title="Roster Library" />
+        android:id="@+id/roster_editor"
+        android:icon="@drawable/writing_icon"
+        android:title="Roster Editor" />
     <item
-        android:id="@+id/unused"
-        android:title="UNUSED" />
+        android:id="@+id/damage_calculator"
+        android:icon="@drawable/calculator_icon"
+        android:title="Damage Calculator" />
 </menu>

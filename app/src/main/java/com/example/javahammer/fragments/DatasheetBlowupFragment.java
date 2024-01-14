@@ -82,6 +82,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
 
     public View view;
     public Fragment prevFragment;
+    ArrayList<Stratagem> elligableStratagems = new ArrayList<>();
     private ArrayList<ArrayList<Weapon>> allWeaponProfiles, uniqueWeaponProfile, rangedWeaponListProfile, meleeWeaponListProfile;
 
     public DatasheetBlowupFragment(Roster roster, Unit unit, Fragment prevFragment) {
@@ -129,7 +130,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
             @Override
             public void onClick(View view) {
                 roster.addUnit(unit);
-                unitDataChanged();
+                setToolbar();
             }
         });
 
@@ -178,6 +179,8 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
 
         // Formats keywords into a pretty string
         keywordsTv.setText(unit.getKeywordsString());
+
+        setToolbar();
     }
     private void initAdapters() {
         // Initializes Statline Adapter and RecyclerView
@@ -249,6 +252,13 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
                 view.findViewById(R.id.unit_composition_expandable_layout),
                 view.findViewById(R.id.unit_composition_preview_dropdown_iv));
 
+
+        setExpandableOnClick(
+                view.findViewById(R.id.keywords_preview_layout),
+                view.findViewById(R.id.keywords_expandable_layout),
+                view.findViewById(R.id.keywords_preview_dropdown_iv));
+
+
         if (enhancements.isEmpty()) {
             view.findViewById(R.id.enhancements_preview_layout).setVisibility(View.GONE);
             view.findViewById(R.id.enhancements_preview_layout).setVisibility(View.GONE);
@@ -270,24 +280,23 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         }
 
         // TODO make include all stratagems when Reference version
-        if (roster != null) {
-            ArrayList<Stratagem> elligableStratagems = roster.detachment.stratagems;
 
-            if (elligableStratagems.isEmpty()) {
-                view.findViewById(R.id.stratagem_preview_layout).setVisibility(View.GONE);
-                view.findViewById(R.id.stratagem_expandable_layout).setVisibility(View.GONE);
-            } else {
-                stratagemAdapter = new StratagemAdapter(elligableStratagems);
-                stratagemAdapter.setListener(this);
-                stratagemRv = view.findViewById(R.id.stratagem_rv);
-                stratagemRv.setAdapter(stratagemAdapter);
-                stratagemRv.setLayoutManager(new LinearLayoutManager(mainActivity));
+        setStratagems();
 
-                setExpandableOnClick(
-                        view.findViewById(R.id.stratagem_preview_layout),
-                        view.findViewById(R.id.stratagem_expandable_layout),
-                        view.findViewById(R.id.stratagem_preview_dropdown_iv));
-            }
+        if (elligableStratagems.isEmpty()) {
+            view.findViewById(R.id.stratagem_preview_layout).setVisibility(View.GONE);
+            view.findViewById(R.id.stratagem_expandable_layout).setVisibility(View.GONE);
+        } else {
+            stratagemAdapter = new StratagemAdapter(elligableStratagems);
+            stratagemAdapter.setListener(this);
+            stratagemRv = view.findViewById(R.id.stratagem_rv);
+            stratagemRv.setAdapter(stratagemAdapter);
+            stratagemRv.setLayoutManager(new LinearLayoutManager(mainActivity));
+
+            setExpandableOnClick(
+                    view.findViewById(R.id.stratagem_preview_layout),
+                    view.findViewById(R.id.stratagem_expandable_layout),
+                    view.findViewById(R.id.stratagem_preview_dropdown_iv));
         }
 
         // Initializes AbilityAdapter and RecyclerView
@@ -316,6 +325,13 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
         modelRv.setAdapter(modelAdapter);
         modelRv.setLayoutManager(new LinearLayoutManager(mainActivity));
 
+
+    }
+
+    protected void setStratagems() {
+        elligableStratagems = new ArrayList<>();
+
+        elligableStratagems = roster.getDetachment().getStratagems();
 
     }
     private void initWeapons() {
@@ -456,7 +472,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
     }
     public void removeModel(ModelComposition modelComposition, Model model) {
         modelComposition.removeModel(model, 1);
-
+        unitDataChanged();
     }
 
     public Unit getUnit() {
@@ -482,7 +498,7 @@ public class DatasheetBlowupFragment extends Fragment implements ModelAdapterLis
 
     public void setToolbar() {
         toolbar.setTitle(unit.getName());
-        toolbar.setSubtitle(roster.getUnitOccurance(unit.getName()));
+        toolbar.setSubtitle(String.format("%d", roster.getUnitOccurance(unit.getName())));
     }
 
 }

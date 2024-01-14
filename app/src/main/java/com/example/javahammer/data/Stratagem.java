@@ -23,6 +23,7 @@ public class Stratagem implements Serializable {
     public String target;
     public String effect;
     public String restrictions;
+    public String detachment;
     ArrayList<ArrayList<Model.ModelKeywords>> requirements;
 
     public Predicate<WarhammerGameState> predicate;
@@ -82,14 +83,11 @@ public class Stratagem implements Serializable {
             return new Pair<>(R.drawable.command_phase, null);
         } else if (phases.contains(Phase.MOVEMENT)) {
             return new Pair<>(R.drawable.movement_phase, null);
-        }
-        else if (phases.contains(Phase.SHOOTING)) {
+        } else if (phases.contains(Phase.SHOOTING)) {
             return new Pair<>(R.drawable.shooting_phase, null);
-        }
-        else if (phases.contains(Phase.CHARGE)) {
+        } else if (phases.contains(Phase.CHARGE)) {
             return new Pair<>(R.drawable.charge_phase, null);
-        }
-        else if (phases.contains(Phase.FIGHT)) {
+        } else if (phases.contains(Phase.FIGHT)) {
             return new Pair<>(R.drawable.fight_phase, null);
         } else {
             return new Pair<>(null, null);
@@ -100,9 +98,9 @@ public class Stratagem implements Serializable {
 
         if (playerTurns.containsAll(EnumSet.allOf(PlayerTurn.class))) {
             return R.color.sea_green;
-        } else if (playerTurns.contains(EnumSet.of(PlayerTurn.OWNER))) {
-            return R.color.astartes_blue;
-        } else if (playerTurns.contains(EnumSet.of(PlayerTurn.OPPONENT))){
+        } else if (playerTurns.equals(EnumSet.of(PlayerTurn.OWNER))) {
+            return R.color.stratagem_window_color;
+        } else if (playerTurns.equals(EnumSet.of(PlayerTurn.OPPONENT))){
             return R.color.red;
         } else {
             throw new RuntimeException("Missing Player Turn");

@@ -1,8 +1,8 @@
 package com.example.javahammer.fragments;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.javahammer.R;
@@ -28,22 +27,19 @@ import java.util.ArrayList;
 
 public class EditRosterSettingsFragment extends Fragment {
 
-    ImageView backgroundImage;
+
+    MainActivity mainActivity;
     Roster roster;
-    EditText editText;
-    TextView rosterNameTv;
-    TextView battleSizeNameTv;
-    TextView battleSizePointsTv;
-    TextView detachmentNameTv;
-    Button editRosterSaveBtn;
     ArrayList<Detachment> detachmentArrayList;
     ArrayAdapter<Detachment> detachmentArrayAdapter;
-    Spinner factionSpinner;
-    Spinner battleSizeSpinner;
-    Spinner detachmentSpinner;
-    MainActivity mainActivity;
-    ScrollView sv;
-    ImageView iv;
+
+    // UI Elements
+    Spinner factionSpinner, battleSizeSpinner, detachmentSpinner;
+
+    Toolbar toolbar;
+    EditText editText;
+    Button editRosterSaveBtn;
+    ImageView factionIv;
 
     public EditRosterSettingsFragment(Roster roster) {
         this.roster = roster;
@@ -65,16 +61,23 @@ public class EditRosterSettingsFragment extends Fragment {
 
         mainActivity = (MainActivity) getActivity();
 
+
+
         // Reads in data from intent
 
 
         // Finds UI elements
-        iv = view.findViewById(R.id.edit_roster_settings_faction_iv);
+        toolbar = view.findViewById(R.id.included_toolbar_edit_roster_settings);
+        factionIv = view.findViewById(R.id.edit_roster_settings_faction_iv);
         editText = view.findViewById(R.id.edit_roster_name_tv);
         factionSpinner = view.findViewById(R.id.edit_roster_faction_spinner);
         battleSizeSpinner = view.findViewById(R.id.edit_roster_battle_size_spinner);
         detachmentSpinner = view.findViewById(R.id.edit_roster_detachment_spinner);
         editRosterSaveBtn = view.findViewById(R.id.edit_roster_save_btn);
+
+
+        // Toolbar Settup
+        toolbar.setTitle("Roster Settings");
 
         // Initializes List of Factions for Spinner
         ArrayList<Faction> factionList = Faction.getFactionList();
@@ -143,14 +146,11 @@ public class EditRosterSettingsFragment extends Fragment {
                 }
             }
         });
-
-        sv = view.findViewById(R.id.edit_roster_setttings_sv);
         update();
-
     }
 
     public void update() {
-        iv.setImageResource(roster.getFaction().getImageRes());
+        factionIv.setImageResource(roster.getFaction().getImageRes());
     }
 
     public class FactionSpinner implements AdapterView.OnItemSelectedListener {

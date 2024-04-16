@@ -35,14 +35,20 @@ The features included in this section are features that are present in both my v
 
 Includes a list of all 24 factions available for play in the game of Warhammer 40k, as well as their relevant faction rules, detachments, enhancements, and stratagems.
 
-![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGUzMGZoanB0ZWs2NXBvY2hxOHptMzhjdnp5amNqZXVkeHcwb3VociZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A0k1yWVZYsXY5dyIdd/giphy.gif)
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/9a043bf7-7a0c-4c95-ac20-0ecbcf45fb19" width="250" height="500" />
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/54fd527c-6a08-46fb-9bc1-61176395e705" width="250" height="500" />
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/a361127a-3884-4c43-91e3-c9da185c94ed" width="250" height="500" />
 
+Relevant information about each unit in a faction can also be accessed in a compact and light-weight format.
+
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/5126a04c-57b5-456d-b4ac-f47cb029ddd5" width="250" height="500" />
 
 ### Roster Building Tool
 
-Users can create and store an indefinte number of rosters that represent a choice in faction, battle size, detachment, and a list of units. Based on the user's choice of faction and detachment, the UI is populated with relevant images of the faction and the units from their selected faction are then able to be added via the corresponding unit header. The cumulative points cost of all the units currently added to their roster is disaplyed alongside the points limit of the battle size they have selected.
+Users can create and store an indefinte number of rosters that represent a choice in faction, battle size, detachment, and a list of units that they are choosing to take. Based on the user's choice of faction and detachment, the UI is populated with relevant images of the faction and the units from their selected faction are then able to be added via the corresponding unit header. The cumulative points cost of all the units currently added to their roster is disaplyed alongside the points limit of the battle size they have selected.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmxjaDFzNzhobzJwY2cyeWY4YXE4bXVjcHl0MTM0NjJldmdscmgwaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ykoqfwfNowZT0v6PqS/giphy.gif)
+
 
 ### Roster Exporting Tool
 
@@ -64,7 +70,6 @@ Utilizing a central activity with a BottomNavigationBar, a fragment manager, and
 As demonstrated, you could be in the middle of configuring your roster, tab over to the Rules Reference to check something, tab over again to the Damage Calculator to check some math, and then return the exact place you left your roster.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDUzbWhrcXBiMzVlZTYyZ2g1MXpvbXVsMHVxNDAxZjF0eTk4NTM2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FWnDhE50q8gMn38w0Q/giphy.gif)
-
 
 
 ## Redesigned Features
@@ -91,14 +96,12 @@ Notabley, the parsing methods are capable of taking not only Integers for input,
 
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/a9e44ef8-cbf9-4b3b-b1d9-450f0e5df7e5" width="250" height="500" />
 
-Special rules for weapons such as the "Twin-Linked" rule are taken into consideration when calculations are run and 
+Special rules for weapons such as the "Twin-Linked" rule - which re-rolls all failed wound rolls - are taken into consideration when calculations are run and logged in the Results section.
 
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/32d90f3d-9065-44a1-ab21-e88867309e92" width="250" height="500" /> <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/626f4f68-5579-43a1-bc37-36bf7aefdf09" width="250" height="500" />
 
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/437bedc5-6b0f-417c-8bcb-0fd03613d2e0" width="250" height="500" /> <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/3614f236-45e6-4f90-8893-2be9521cda51" width="250" height="500" />
 
-
-Abstractions 
 
 Manually creating weapon profiles and entering the data is not the only way to use the damage calculator feature of this app. Users can quickly import any weapon profile they are viewing into the list of profiles on display in the damage calculator tab by simply clicking the corresponding calculator icon next to weaopon profiles wherever they appear. 
 

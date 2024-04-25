@@ -28,7 +28,7 @@ This companion app for the popular tabletop game Warhammer 40k, assists players 
 
 ## Original Features
 
-The features included in this section are features that are present in both my version and the Games Workshop's version of the Warhammer 40k app, who's function has also been replicated in my app via my own implementation. 
+The features included in this section are ones are present in the Games Workshop's version of the Warhammer 40k app, who's function has also been replicated in my app via my own implementation. 
 
 
 ### Core Rules / Faction Reference

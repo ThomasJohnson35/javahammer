@@ -2,7 +2,7 @@
 
 # Javahammer
 
-This companion app for the popular tabletop game Warhammer 40k, assists players in learning/referencing the rules of the game, constructing their army rosters which are necessary for play, and enabling them to make the best decision's while playing with it's built in damage projection features. The conept of this app is based off of the currently existing Warhammer 40k companion app developed by Games Workshop, however this version is written from scratch by myself and attempts to redesign many features in order make the process of preparing/playing the game of Warhammer 40k both more streamlined and more enjoyable. All media shown represent screenshots and recordings of my version of the companion app.
+This companion app for the popular tabletop game Warhammer 40k, assists players in learning/referencing the rules of the game, constructing their army rosters which are necessary for play, and enabling them to make the best decision's while playing with it's built in damage projection features. The concept of this app is based off of the currently existing Warhammer 40k companion app developed by Games Workshop, however this version is written from scratch by myself and attempts to redesign many features in order make the process of preparing/playing the game of Warhammer 40k both more streamlined and more enjoyable. All media shown represent screenshots and recordings of my version of the companion app.
 
 ## Screenshots
 
@@ -79,7 +79,7 @@ As demonstrated, you could be in the middle of configuring your roster, tab over
 
 ### Damage Calculator
 
-Warhammer 40k is - at its core - a strategic tabletop game revolving chiefly around high volumes of dice rolling in order to simulate events happening on the battlefield.
+Warhammer 40k is - at its core - a strategic tabletop game revolving chiefly around high volumes of dice rolling in order to simulate events happening on the battlefield. 
 Simply firing a weapon to damage an opposing player's unit could require rolls in order to determine the number of attacks that:
 
 * Are fired from the weapon

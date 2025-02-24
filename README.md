@@ -2,29 +2,9 @@
 
 # Javahammer
 
-This companion app for the popular tabletop game Warhammer 40k, assists players in learning/referencing the rules of the game, constructing their army rosters which are necessary for play, and enabling them to make the best decision's while playing with it's built in damage projection features. The concept of this app is based off of the currently existing Warhammer 40k companion app developed by Games Workshop, however this version is written from scratch by myself and attempts to redesign many features in order make the process of preparing/playing the game of Warhammer 40k both more streamlined and more enjoyable. All media shown represent screenshots and recordings of my version of the companion app.
+Javahammer is a companion app for the popular tabletop game Warhammer 40K. It assists players in learning and referencing game rules, constructing army rosters, and making strategic decisions with built-in damage projection features. This app is inspired by the official Warhammer 40K companion app developed by Games Workshop. However, it has been entirely developed from scratch, with redesigned features aimed at streamlining and enhancing the gameplay experience.
 
-## Screenshots
-
-<Roster Library>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/1b1e211d-5f2c-47bf-b3ea-8ad07cad9e17" width="250" height="500" />
-<Roster Settings>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/55f486eb-8638-42fe-8222-571bdea1d213" width="250" height="500" />
-<Roster Builder>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/5051779e-b064-4c1a-8115-3561d1069c9a" width="250" height="500" />
-<Datasheet Blowup>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/e420345f-e919-4d70-a290-ef4edeaa4e61" width="250" height="500" />
-<Unit Management>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/3ef5d316-434c-48ff-a721-63be5004c13d" width="250" height="500" />
-<Importing Unit>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/3fbaefbf-b330-4832-996a-7a6f696b47e2" width="250" height="500" />
-<Damage Calculator>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/f6dd8c2c-27e0-44be-9f3b-bd7af7fdafd9" width="250" height="500" />
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/001888d9-5422-4c27-a9df-e4248cca947f" width="250" height="500" />
-<Faction>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/f932f9a3-8785-458c-ad13-7e8462960f1a" width="250" height="500" />
-<Detachment>
-<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/38f5a1e9-c255-4d57-8247-b9f367b9a372" width="250" height="500" />
+All media shown in this document are screenshots and recordings from my version of the companion app.
 
 ## Original Features
 
@@ -33,41 +13,39 @@ The features included in this section are ones are present in the Games Workshop
 
 ### Core Rules / Faction Reference
 
-Includes a list of all 24 factions available for play in the game of Warhammer 40k, as well as their relevant faction rules, detachments, enhancements, and stratagems.
+The app includes a reference list of all 24 playable factions in Warhammer 40K, along with their relevant rules, detachments, enhancements, and stratagems. 
 
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/9a043bf7-7a0c-4c95-ac20-0ecbcf45fb19" width="250" height="500" />
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/54fd527c-6a08-46fb-9bc1-61176395e705" width="250" height="500" />
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/a361127a-3884-4c43-91e3-c9da185c94ed" width="250" height="500" />
 
-Relevant information about each unit in a faction can also be accessed in a compact and light-weight format.
+Users can also access unit-specific data in a compact, lightweight format.
 
 <img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/5126a04c-57b5-456d-b4ac-f47cb029ddd5" width="250" height="500" />
 
 ### Roster Building Tool
 
-Users can create and store an indefinte number of rosters that represent a choice in faction, battle size, detachment, and a list of units that they are choosing to take. Based on the user's choice of faction and detachment, the UI is populated with relevant images of the faction and the units from their selected faction are then able to be added via the corresponding unit header. The cumulative points cost of all the units currently added to their roster is disaplyed alongside the points limit of the battle size they have selected.
+Players can create and store an unlimited number of rosters, specifying faction, battle size, detachment, and unit selections. The UI dynamically updates with relevant faction images and unit choices based on the user's selections. The app also calculates and displays the total roster points in real-time.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmxjaDFzNzhobzJwY2cyeWY4YXE4bXVjcHl0MTM0NjJldmdscmgwaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ykoqfwfNowZT0v6PqS/giphy.gif)
 
 
 ### Roster Exporting Tool
 
-If a user wants to view their roster into a more readable plaintext format, they need simply click the corresponding export icon when viewing their roster. Another icon on this page will copy the text elements of this page into the user's clipboard to make for easy use outside of the app.
+Users can export their roster in a readable plaintext format with a simple click. Additionally, the app includes a copy-to-clipboard function, allowing easy sharing outside of the application.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTM3Y2piNTViZmVteTBjanQ0ZWt5dmtuZDVqbHZpYXBmYW1wOWtuNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BbKa6IF7qVU5yymwqG/giphy.gif)
 
 
-### Persistent Data 
+### Persistent Data Storage
 
-Whenever the Main Activity that wraps the various fragments of the application onPaused() method is called (i.e. whenever a user exits or closes the app), the list of rosters is serialized into a JSON data format that I designed. Upon relaunching the application the JSON data is parsed and the list of rosters is recreated. This method of saving ensures that no explicit saving must ever be performed by the user, so there is very little risk of their work building a list ever being lost.
+Rosters are automatically serialized into a custom JSON format whenever the app is closed. Upon reopening, the data is parsed and restored, eliminating the need for manual saving and preventing accidental data loss.
 
 <img src="https://github.com/ThomasJohnson35/javahammer/blob/main/Real%20Data%20Persistence.gif" width="250" height="500" />
 
 ### Light-weight design
 
-Utilizing a central activity with a BottomNavigationBar, a fragment manager, and a fragment tagging system, the UI has been settup to allow users to navigate freely back and forth between the three various sections of the app (Rules Reference/Roster Editor/Damage Calculator) without losing your place.
-
-As demonstrated, you could be in the middle of configuring your roster, tab over to the Rules Reference to check something, tab over again to the Damage Calculator to check some math, and then return the exact place you left your roster.
+The app features a streamlined UI with a bottom navigation bar, a fragment manager, and a tagging system. This allows users to seamlessly switch between the Rules Reference, Roster Editor, and Damage Calculator without losing progress.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDUzbWhrcXBiMzVlZTYyZ2g1MXpvbXVsMHVxNDAxZjF0eTk4NTM2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FWnDhE50q8gMn38w0Q/giphy.gif)
 
@@ -109,10 +87,35 @@ Manually creating weapon profiles and entering the data is not the only way to u
 
 This integration - alongside the app's lightweight multi-tab design - makes it incredibly easy to gauge a unit's performance and decide how to configure it's loadout while building a roster. 
 
-### Forced Roster Validation
+### Advanced Roster Validation
 
-Rules for army construction in Warhammer 40k can be very complicated at times, resulting in a lot of frustration and tedium while trying to build a roster to use. Specifically, trying to figure out a legal loadout for a given unit can be incredibly difficult. The Games Workshop Warhammer 40k app does not make this process much easier, as it merely describes the many parameters a unit may have to be valid, and then throws validation warnings at the user if the configuration does not comply. In the development of my version of the app I ensured that Unit validation errors would never occur, as the app would pre-emptively determine what would and would not be legal configuration of a unit, block said configuration if it would cause a validation error, and provide explaination as to what validation error would be caused.
+Army construction rules can be complex, often leading to frustrating validation errors in the official Warhammer 40K app. Javahammer prevents invalid configurations by proactively enforcing unit restrictions and providing clear explanations when limitations apply. This ensures a smoother and more user-friendly roster-building experience.
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGwxaG10aXlmdzBrMmJydDNyYWVwMzZheWhrcWtndnJ6eXM5ZXh5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GbCX49RxnkCgF58tBQ/giphy.gif)
 
-This change - alongside other improvements to the UI surrounding wargear - represent a drastic improvement in visual clarity over the Games Workshop version.
+## Conclusion
+
+Javahammer offers a more intuitive and efficient alternative to the official Warhammer 40K companion app. With enhanced roster management, a powerful damage calculator, and robust validation features, it streamlines gameplay preparation and decision-making, making the Warhammer 40K experience more enjoyable and accessible for players.
+
+## Screenshots
+
+<Roster Library>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/1b1e211d-5f2c-47bf-b3ea-8ad07cad9e17" width="250" height="500" />
+<Roster Settings>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/55f486eb-8638-42fe-8222-571bdea1d213" width="250" height="500" />
+<Roster Builder>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/5051779e-b064-4c1a-8115-3561d1069c9a" width="250" height="500" />
+<Datasheet Blowup>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/e420345f-e919-4d70-a290-ef4edeaa4e61" width="250" height="500" />
+<Unit Management>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/3ef5d316-434c-48ff-a721-63be5004c13d" width="250" height="500" />
+<Importing Unit>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/3fbaefbf-b330-4832-996a-7a6f696b47e2" width="250" height="500" />
+<Damage Calculator>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/f6dd8c2c-27e0-44be-9f3b-bd7af7fdafd9" width="250" height="500" />
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/001888d9-5422-4c27-a9df-e4248cca947f" width="250" height="500" />
+<Faction>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/f932f9a3-8785-458c-ad13-7e8462960f1a" width="250" height="500" />
+<Detachment>
+<img src="https://github.com/ThomasJohnson35/javahammer/assets/24684871/38f5a1e9-c255-4d57-8247-b9f367b9a372" width="250" height="500" />
+
